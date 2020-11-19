@@ -1,0 +1,859 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1561.61">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 19.0px; font: 14.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 14.0px Courier; color: #333333}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Courier; color: #333333; min-height: 14.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Courier; color: #333333}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #ff2600}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 14.0px Courier; color: #333333; min-height: 17.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 12.0px Times; color: #000000; min-height: 14.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 11.0px Menlo; color: #000000}
+    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 13.0px; font: 11.0px Menlo; color: #000000}
+    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 13.0px; font: 12.0px Times; color: #000000; min-height: 14.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 13.0px; font: 12.0px Times; color: #000000}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 12.0px Monaco; color: #000000}
+    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 11.0px Menlo; color: #000000}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 12.0px Times; color: #000000}
+    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 12.0px Times; color: #000000; background-color: #ffffff}
+    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #4070a0}
+    p.p19 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 19.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica}
+    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 13.0px 'Helvetica Neue'; color: #000000}
+    p.p23 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 12.0px Monaco; color: #ff2600}
+    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 12.0px Times; color: #ff2600; min-height: 14.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 12.0px Monaco; color: #000000; min-height: 16.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 15.0px Menlo; color: #333333}
+    p.p27 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Times; color: #000000}
+    p.p28 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Times; color: #dd1144}
+    p.p29 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Times; color: #000000; min-height: 14.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 15.0px Times; color: #dd1144}
+    p.p31 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 15.0px Menlo; color: #dd1144}
+    p.p32 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 15.0px Times; color: #dd1144}
+    p.p33 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 15.0px Times; color: #dd1144}
+    p.p34 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 15.0px Times; color: #333333}
+    p.p35 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 14.0px Helvetica; color: #000000}
+    p.p36 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 15.0px Menlo; color: #333333}
+    p.p37 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 15.0px Helvetica; color: #333333}
+    p.p38 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 14.0px Helvetica; color: #000000; min-height: 17.0px}
+    span.s1 {font-variant-ligatures: no-common-ligatures}
+    span.s2 {font-kerning: none}
+    span.s3 {font: 12.0px Times; font-kerning: none; color: #000000}
+    span.s4 {font-kerning: none; background-color: #f5f5f5}
+    span.s5 {font-kerning: none; color: #4070a0; background-color: #f5f5f5}
+    span.s6 {font-kerning: none; color: #208050; background-color: #f5f5f5}
+    span.s7 {font-kerning: none; color: #4070a0}
+    span.s8 {font: 12.0px Times; font-kerning: none}
+    span.s9 {font: 12.0px Times; font-kerning: none; color: #4070a0}
+    span.s10 {font-kerning: none; color: #208050}
+    span.s11 {font: 12.0px Monaco; font-kerning: none}
+    span.s12 {font-kerning: none; background-color: #ffffff}
+    span.s13 {font-kerning: none; color: #000000}
+    span.s14 {font-kerning: none; color: #24292d}
+    span.s15 {font: 16.0px 'Times New Roman'; font-kerning: none}
+    span.s16 {font: 12.0px Monaco; font-kerning: none; color: #ff2600}
+    span.s17 {font: 13.0px 'Helvetica Neue'; font-kerning: none; color: #000000}
+    span.s18 {font-kerning: none; background-color: #fbe54e}
+    span.s19 {font-kerning: none; color: #000000; background-color: #fbe54e}
+    span.s20 {text-decoration: underline ; font-kerning: none}
+    span.s21 {font-kerning: none; color: #008080}
+    span.s22 {font-kerning: none; background-color: #f8f8f8}
+    span.s23 {font: 15.0px Menlo; font-kerning: none; color: #333333; background-color: #f8f8f8}
+    span.s24 {font-kerning: none; color: #dd1144}
+    span.s25 {font: 15.0px Menlo; font-kerning: none; color: #008080}
+    span.s26 {font: 15.0px Menlo; font-kerning: none}
+    span.s27 {font: 15.0px Menlo; font-kerning: none; color: #008080; background-color: #f8f8f8}
+    span.s28 {font: 15.0px Menlo; font-kerning: none; background-color: #f8f8f8}
+    span.s29 {font-kerning: none; color: #333333; background-color: #f8f8f8}
+    span.s30 {font: 15.0px Times; font-kerning: none; background-color: #f8f8f8}
+    span.s31 {font-kerning: none; color: #008080; background-color: #f8f8f8}
+    span.s32 {font: 14.0px Helvetica; font-kerning: none; color: #000000}
+    span.s33 {font-kerning: none; color: #007020}
+    span.s34 {font: 14.0px Helvetica; font-kerning: none; background-color: #f8f8f8}
+    span.s35 {font-kerning: none; color: #333333}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1"><b>#QIIME2 Analysis<span class="Apple-converted-space"> </span></b></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">##### 16S rRNA amplicon sequencing run ####</span></p>
+<p class="p4"><span class="s2"><b># Make paired end sequence artifact</b></span></p>
+<p class="p4"><span class="s2">qiime tools import \</span></p>
+<p class="p4"><span class="s2">   --type EMPPairedEndSequences \</span></p>
+<p class="p4"><span class="s2">   --input-path paired-end-sequences \</span></p>
+<p class="p4"><span class="s2">   --output-path paired-end-sequences.qza</span></p>
+<p class="p5"><span class="s2"></span><br></p>
+<p class="p4"><span class="s2"><b># Demultiplex the sequence reads</b></span></p>
+<p class="p4"><span class="s2">qiime demux emp-paired \</span></p>
+<p class="p4"><span class="s2">  --m-barcodes-file sample-metadata_try3.tsv \</span></p>
+<p class="p4"><span class="s2">  --m-barcodes-column BarcodeSequence \</span></p>
+<p class="p4"><span class="s2">  --i-seqs emp-paired-end-sequences.qza \</span></p>
+<p class="p4"><span class="s2">  --o-per-sample-sequences demux.qza</span><span class="s3"> </span><span class="s2">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p5"><span class="s2"></span><br></p>
+<p class="p4"><span class="s2">qiime demux summarize \</span></p>
+<p class="p4"><span class="s2">  --i-data demux.qza \</span></p>
+<p class="p4"><span class="s2">  --o-visualization demux.qzv</span></p>
+<p class="p5"><span class="s2"></span><br></p>
+<p class="p4"><span class="s2"><b># View demultiplexed reads plot</b></span></p>
+<p class="p5"><span class="s2"></span><br></p>
+<p class="p4"><span class="s2">qiime tools view demux.qzv</span></p>
+<p class="p5"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p6"><span class="s4">#chose trim left at 12 because first time that base pair quality score went to 38</span></p>
+<p class="p4"><span class="s4">qiime dada2 denoise-paired</span><span class="s3"> </span><span class="s5"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s4">  --i-demultiplexed-seqs demux.qza</span><span class="s3"> </span><span class="s5"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s4">  --o-table table_run1.qza</span><span class="s3"> </span><span class="s5"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s4">  --o-representative-sequences rep-seqs-run1.qza</span><span class="s3"> </span><span class="s5"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s4">  --p-trim-left-f</span><span class="s3"> </span><span class="s6">12</span><span class="s3"> </span><span class="s5"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s4">  --p-trim-left-r</span><span class="s3"> </span><span class="s6">12</span><span class="s3"> </span><span class="s5"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s4">  --p-trunc-len-f</span><span class="s3"> </span><span class="s6">150</span><span class="s3"> </span><span class="s5"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s4">  --p-trunc-len-r</span><span class="s3"> </span><span class="s6">150</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p7"><span class="s2">#### Run 2 (with extra Cephalotes texanus samples) ###</span></p>
+<p class="p4"><span class="s2"><b># Make paired end sequence artifact</b></span></p>
+<p class="p8"><span class="s2"></span><br></p>
+<p class="p4"><span class="s2">qiime tools import \</span></p>
+<p class="p4"><span class="s2">   --type EMPPairedEndSequences \</span></p>
+<p class="p4"><span class="s2">   --input-path paired-end-sequences-run2 \</span></p>
+<p class="p4"><span class="s2">   --output-path paired-end-sequences_run2.qza</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">qiime demux emp-paired-sequences-run2 </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p10"><span class="s8">--m-barcodes-file </span><span class="s2">argonne-fixed-metadata-try3.tsv</span><span class="s8"> </span><span class="s9"><b>\</b></span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--m-barcodes-column BarcodeSequence </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--i-seqs emp-paired-end-sequences_run2.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--o-per-sample-sequences demux_try2.qza <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2"> <span class="Apple-converted-space"> </span></span></p>
+<p class="p11"><span class="s2"> qiime demux summarize \</span></p>
+<p class="p11"><span class="s2">--i-data demux_try2.qza \</span></p>
+<p class="p11"><span class="s2">--o-visualization demux_try2.qzv</span></p>
+<p class="p12"><span class="s2"></span><br></p>
+<p class="p13"><span class="s2">qiime dada2 denoise-paired </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2"> --i-demultiplexed-seqs demux_try2.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2"> --p-trim-left-f </span><span class="s10">12 </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2"> --p-trim-left-r </span><span class="s10">12</span><span class="s2"> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2"> --p-trunc-len-f </span><span class="s10">150</span><span class="s2"> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2"> --p-trunc-len-r </span><span class="s10">150</span><span class="s2"> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2"> --o-table table-run2.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2"> --o-representative-sequences rep-seqs-run2.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2"> --o-denoising-stats denoising-stats-run2.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p12"><span class="s2"></span><br></p>
+<p class="p13"><span class="s2">Filter <span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2">qiime feature-table filter-samples </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2"> --i-table table-run2.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2">--m-metadata-file samples-to-keep.tsv </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2">--o-filtered-table id-filtered-run2.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2"> <span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2">qiime feature-table filter-seqs \<span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2">--i-data rep-seqs-run2.qza \<span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2">--i-table id-filtered-run2.qza  \<span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2">--p-exclude-ids \<span class="Apple-converted-space"> </span></span></p>
+<p class="p13"><span class="s2">--o-filtered-data rep-seqs-filtered-run2.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p12"><span class="s2"></span><br></p>
+<p class="p13"><span class="s2">#visualize feature table from run2<span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">qiime feature-table summarize \</span></p>
+<p class="p14"><span class="s2">--i-table table_run1.qza \</span></p>
+<p class="p14"><span class="s2">--o-visualization table_run1.qzv \</span></p>
+<p class="p14"><span class="s2">--m-sample-metadata-file sample-metadata_try3.tsv<span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">#visualize table from run1</span></p>
+<p class="p14"><span class="s2">qiime feature-table summarize \</span></p>
+<p class="p14"><span class="s2">--i-table id-filtered-run2.qza \</span></p>
+<p class="p14"><span class="s2">--o-visualization id-filtered-run2.qzv \</span></p>
+<p class="p15"><span class="s11">--m-sample-metadata-file </span><span class="s2">argonne-fixed-metadata-try3.tsv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime feature-table tabulate-seqs \</span></p>
+<p class="p14"><span class="s2">  --i-data rep-seqs-filtered-run2.qza \</span></p>
+<p class="p14"><span class="s2">  --o-visualization rep-seqs-filtered-run2.qzv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p16"><span class="s2">qiime feature-table</span><span class="s12"> merge \<span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><span class="s12">--i-tables id-filtered-run2.qza \<span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><span class="s2">--i-tables table_run1.qza \<span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><span class="s2">--o-merged-table merged-table.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p17"><span class="s2">qiime feature-table merge-seqs \<span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><span class="s2">--i-data rep-seqs-run1.qza \<span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><span class="s2">--i-data rep-seqs-filtered-run2.qza \<span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><span class="s2">--o-merged-data merged-rep-seqs.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p16"><span class="s2">FOR FILTERED AND MERGED DATA<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">qiime tools import </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p18"><span class="s13">  --type </span><span class="s2">'FeatureData[Sequence]'</span><span class="s13"> </span><span class="s2"><b>\</b></span><span class="s13"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --input-path silva_132_99_16S.fna </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --output-path 99_silva_otus.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">qiime tools import </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p18"><span class="s13">  --type </span><span class="s2">'FeatureData[Taxonomy]'</span><span class="s13"> </span><span class="s2"><b>\</b></span><span class="s13"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --input-format HeaderlessTSVTaxonomyFormat </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --input-path taxonomy_7_levels.txt </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --output-path ref-taxonomy.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>#Extract Reference Reads</b></span></p>
+<p class="p3"><span class="s2">qiime feature-classifier extract-reads </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --i-sequences 99_silva_otus.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --p-f-primer GTGCCAGCMGCCGCGGTAA </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --p-r-primer GGACTACHVGGGTWTCTAAT </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --p-trunc-len </span><span class="s10">120</span><span class="s2"> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-reads ref-seqs.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>#Train the Classifier</b></span></p>
+<p class="p3"><span class="s2">qiime feature-classifier fit-classifier-naive-bayes </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --i-reference-reads ref-seqs.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --i-reference-taxonomy ref-taxonomy.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-classifier classifier.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>#Test the classifier</b></span></p>
+<p class="p3"><span class="s2">qiime feature-classifier classify-sklearn </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --i-classifier classifier.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --i-reads merged-rep-seqs.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-classification taxonomy.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>#Extract Reference Reads</b></span></p>
+<p class="p3"><span class="s2">qiime feature-classifier extract-reads </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --i-sequences 99_silva_otus.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --p-f-primer GTGCCAGCMGCCGCGGTAA </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --p-r-primer GGACTACHVGGGTWTCTAAT </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --p-trunc-len </span><span class="s10">120</span><span class="s2"> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-reads ref-seqs.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p11"><span class="s2">qiime feature-classifier fit-classifier-naive-bayes \</span></p>
+<p class="p11"><span class="s2">--i-reference-reads ref-seqs.qza \</span></p>
+<p class="p11"><span class="s2">--i-reference-taxonomy ref-taxonomy.qza \</span></p>
+<p class="p11"><span class="s2">--o-classifier classifier.qza</span></p>
+<p class="p12"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">qiime feature-classifier classify-sklearn </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --i-classifier classifier.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --i-reads merged-rep-seqs.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-classification taxonomy.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime feature-table summarize \</span></p>
+<p class="p14"><span class="s2">  --i-table merged-table.qza \</span></p>
+<p class="p14"><span class="s2">  --o-visualization merged-table.qzv \</span></p>
+<p class="p14"><span class="s2">  --m-sample-metadata-file sample-metadata_merged.tsv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime feature-table tabulate-seqs \</span></p>
+<p class="p14"><span class="s2">  --i-data merged-rep-seqs.qza \</span></p>
+<p class="p14"><span class="s2">  --o-visualization merged-rep-seqs.qzv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime phylogeny align-to-tree-mafft-fasttree</span><span class="s8"> </span><span class="s7">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">  --i-sequences merged-rep-seqs.qza</span><span class="s8"> </span><span class="s7">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">  --o-alignment aligned-rep-seqs.qza</span><span class="s8"> </span><span class="s7">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">  --o-masked-alignment masked-aligned-rep-seqs.qza</span><span class="s8"> </span><span class="s7">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">  --o-tree unrooted-tree.qza</span><span class="s8"> </span><span class="s7">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">  --o-rooted-tree rooted-tree.qza</span></p>
+<p class="p19"><span class="s1"><b></b></span><br></p>
+<p class="p19"><span class="s1"><b></b></span><br></p>
+<p class="p1"><span class="s1"><b>### convert QIIME to phyloseq in R ###</b></span></p>
+<p class="p19"><span class="s1"><b></b></span><br></p>
+<p class="p20"><b># How to export a feature (OTU) table and convert from biom to .tsv<span class="Apple-converted-space"> </span></b></p>
+<p class="p1"><span class="s2"><b># Step 1, export OTU table<span class="Apple-converted-space"> </span></b></span></p>
+<p class="p1"><span class="s2">qiime tools export \</span></p>
+<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s1">merged-table.qza </span><span class="s2">\</span></p>
+<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>--output-dir </span><span class="s1">phyloseq</span></p>
+<p class="p19"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><b># OTU table exports as feature-table.biom so convert to .tsv</b></span></p>
+<p class="p20"><span class="s14">biom co</span><span class="s2">nvert -i </span><span class="s1">phyloseq/</span><span class="s2">feature-table.biom -o </span><span class="s1">phyloseq/</span><span class="s2">otu_table.txt --to-tsv</span></p>
+<p class="p21"><span class="s2"></span><br></p>
+<p class="p20"><span class="s2"><b># now you have otu_table.txt</b></span></p>
+<p class="p20"><span class="s2"># open it up in text edit and change #OTUID to OTUID</span></p>
+<p class="p19"><span class="s1"></span><br></p>
+<p class="p20"><span class="s2"><b># Step 2, export taxonomy table</b><span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s2">qiime tools export \</span></p>
+<p class="p20">taxonomy.qza<span class="s2">\</span></p>
+<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>--output-dir </span><span class="s1">phyloseq</span></p>
+<p class="p19"><span class="s1"></span><br></p>
+<p class="p20"><span class="s2"><b># now you have </b></span><span class="s1"><b>taxonomy.tsv</b></span></p>
+<p class="p20"><span class="s2"># open it up in text edit and change </span><span class="s1">Feature ID to </span><span class="s2">OTUID</span></p>
+<p class="p19"><span class="s1"></span><br></p>
+<p class="p1"><span class="s2"><b># Step 3, export tree<span class="Apple-converted-space"> </span></b></span></p>
+<p class="p1"><span class="s2">qiime tools export \</span></p>
+<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>unrooted-tree.qza \</span></p>
+<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>--output-dir </span><span class="s1">phyloseq</span></p>
+<p class="p19"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><b># Step 4 QIIME2 doesn’t filter out taxonomy, so you have to merge the two files in R and output a merged file</b></span></p>
+<p class="p1"><span class="s1"><b>(the rest of the code is in the R file)</b></span></p>
+<p class="p19"><span class="s1"><b></b></span><br></p>
+<p class="p1"><span class="s1"><b>#without procryptocerus</b></span></p>
+<p class="p3"><span class="s2">qiime tools import \<span class="Apple-converted-space"> </span></span></p>
+<p class="p22"><span class="s8">--input-path </span><span class="s2">otu_decontam_nopro.biom</span><span class="s8"> \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--type 'FeatureTable[Frequency]' \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--input-format BIOMV100Format \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--output-path feature-table_phylo_nopro_decontam.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">#filter rep-seqs file for decontaminated OTUs<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">qiime feature-table filter-seqs \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--i-data merged-rep-seqs.qza \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--i-table feature-table_phylo_nopro_decontam.qza   \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--p-no-exclude-ids \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--o-filtered-data rep-seqs-decontam-nopro.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">qiime phylogeny align-to-tree-mafft-fasttree </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --i-sequences rep-seqs-decontam-nopro.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-alignment aligned-rep-seqs-decontam-nopro.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-masked-alignment masked-aligned-rep-seqs-decontam-nopro.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-tree unrooted-tree-decontam-nopro.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-rooted-tree rooted-tree-decontam-nopro.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>#with procryptocerus</b></span></p>
+<p class="p3"><span class="s2">qiime tools import \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--input-path otu_decontam.biom \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--type 'FeatureTable[Frequency]' \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--input-format BIOMV100Format \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--output-path feature-table_phylo_decontam.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">qiime feature-table filter-seqs \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--i-data merged-rep-seqs.qza \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--i-table feature-table_phylo_decontam.qza   \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--p-no-exclude-ids \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--o-filtered-data rep-seqs-decontam-withpro.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">qiime phylogeny align-to-tree-mafft-fasttree </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --i-sequences rep-seqs-decontam-withpro.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-alignment aligned-rep-seqs-decontam-withpro.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-masked-alignment masked-aligned-rep-seqs-decontam-withpro.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-tree unrooted-tree-decontam-withpro.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-rooted-tree rooted-tree-decontam-withpro.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p19"><span class="s1"><b></b></span><br></p>
+<p class="p1"><span class="s1"><b>####</b></span></p>
+<p class="p19"><span class="s1"><b></b></span><br></p>
+<p class="p23"><span class="s2">qiime diversity core-metrics-phylogenetic \</span></p>
+<p class="p23"><span class="s2">   --i-phylogeny</span><span class="s3"> </span><span class="s2">rooted-tree-decontam-nopro.qza \</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p23"><span class="s2">   --i-table</span><span class="s3"> </span><span class="s2">feature-table_phylo_nopro_decontam.qza \</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p23"><span class="s2">   --p-sampling-depth</span><span class="s3"> </span><span class="s15">13814</span><span class="s2"> \</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p23"><span class="s2">   --m-metadata-file</span><span class="s3"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv</span><span class="s3"> </span><span class="s2">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><span class="s16">   --output-dir </span><span class="s2">core-metrics-results-rarefied-nopro-rooted-try2</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity core-metrics-phylogenetic \</span></p>
+<p class="p14"><span class="s2">   --i-phylogeny</span><span class="s8"> </span><span class="s2">rooted-tree-decontam-withpro.qza \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">   --i-table</span><span class="s8"> </span><span class="s2">feature-table_phylo_decontam.qza \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">   --p-sampling-depth</span><span class="s8"> </span><span class="s15">13335</span><span class="s2"> \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">   --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_rarefied_withpro_qiime_caste.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">   --output-dir</span><span class="s8"> </span><span class="s2">core-metrics-results-rarefied-withpro-rooted-try2</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p19"><span class="s1"><b></b></span><br></p>
+<p class="p1"><span class="s1"><b>#alpha diversity statistics</b></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity alpha-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-alpha-diversity</span><span class="s8"> </span><span class="s2">shannon_vector-nopro.qza</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --o-visualization</span><span class="s8"> </span><span class="s2">shannon-group-significance-nopro.qzv</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity alpha-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-alpha-diversity</span><span class="s8"> </span><span class="s2">evenness_vector-nopro.qza</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --o-visualization</span><span class="s8"> </span><span class="s2">evenness-group-significance-nopro.qzv</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity alpha-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-alpha-diversity</span><span class="s8"> </span><span class="s2">faith_pd_vector-nopro.qza</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --o-visualization</span><span class="s8"> </span><span class="s2">faith-pd-group-significance-nopro.qzv</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity alpha-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-alpha-diversity</span><span class="s8"> </span><span class="s2">observed_otus_vector-nopro.qza</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --o-visualization</span><span class="s8"> </span><span class="s2">observed-otus-group-significance-nopro.qzv</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p1"><span class="s1"><b>#beta diversity statistics<span class="Apple-converted-space"> </span></b></span></p>
+<p class="p14"><span class="s2">qiime diversity adonis \</span></p>
+<p class="p14"><span class="s2">--i-distance-matrix weighted_unifrac_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">--m-metadata-file sample-metadata_merged_qpcr1_nopro_again.tsv \</span></p>
+<p class="p14"><span class="s2">--p-formula "Body_Type*Species*Caste_Type*Colony" \</span></p>
+<p class="p14"><span class="s2">--p-permutations 999 \</span></p>
+<p class="p14"><span class="s2">--o-visualization ADONIS-weighted_unifrac_colony.qzv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity adonis \</span></p>
+<p class="p14"><span class="s2">--i-distance-matrix unweighted_unifrac_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">--m-metadata-file sample-metadata_merged_qpcr1_nopro_again.tsv \</span></p>
+<p class="p14"><span class="s2">--p-formula "Body_Type*Species*Caste_Type*Colony" \</span></p>
+<p class="p14"><span class="s2">--p-permutations 999 \</span></p>
+<p class="p14"><span class="s2">--o-visualization ADONIS-unweighted_unifrac_colony.qzv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity adonis \</span></p>
+<p class="p14"><span class="s2">--i-distance-matrix bray_curtis_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">--m-metadata-file sample-metadata_merged_qpcr1_nopro_again.tsv \</span></p>
+<p class="p14"><span class="s2">--p-formula "Body_Type*Species*Caste_Type*Colony" \</span></p>
+<p class="p14"><span class="s2">--p-permutations 999 \</span></p>
+<p class="p14"><span class="s2">--o-visualization ADONIS-bray_colony.qzv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity adonis \</span></p>
+<p class="p14"><span class="s2">--i-distance-matrix bray_curtis_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">--m-metadata-file sample-metadata_merged_qpcr1_nopro_again.tsv \</span></p>
+<p class="p14"><span class="s2">--p-formula "Body_Type*Species*Caste_Type" \</span></p>
+<p class="p14"><span class="s2">--p-permutations 999 \</span></p>
+<p class="p14"><span class="s2">--o-visualization ADONIS-bray_nocolony.qzv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity adonis \</span></p>
+<p class="p14"><span class="s2">--i-distance-matrix bray_curtis_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">--m-metadata-file sample-metadata_merged_qpcr1_nopro_again.tsv \</span></p>
+<p class="p14"><span class="s2">--p-formula “Species" \</span></p>
+<p class="p14"><span class="s2">--p-permutations 999 \</span></p>
+<p class="p14"><span class="s2">--o-visualization ADONIS-bray_species.qzv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity adonis \</span></p>
+<p class="p14"><span class="s2">--i-distance-matrix bray_curtis_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">--m-metadata-file sample-metadata_merged_qpcr1_nopro_again.tsv \</span></p>
+<p class="p14"><span class="s2">--p-formula “Species" \</span></p>
+<p class="p14"><span class="s2">--p-permutations 999 \</span></p>
+<p class="p14"><span class="s2">--o-visualization ADONIS-bray_species.qzv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p16"><span class="s2">#permdisp</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p23"><span class="s2">qiime diversity beta-group-significance \</span></p>
+<p class="p23"><span class="s2">--i-distance-matrix bray_curtis_distance_matrix.qza \</span></p>
+<p class="p23"><span class="s2">--m-metadata-file sample-metadata_merged_qpcr1_nopro_again.tsv \</span></p>
+<p class="p23"><span class="s2">--m-metadata-column Species \</span></p>
+<p class="p23"><span class="s2">--p-method 'permdisp' \</span></p>
+<p class="p23"><span class="s2">--p-pairwise \</span></p>
+<p class="p23"><span class="s2">--o-visualization bray__species_permdisp.qzv</span></p>
+<p class="p24"><span class="s2"></span><br></p>
+<p class="p23"><span class="s2">qiime diversity beta-group-significance \</span></p>
+<p class="p23"><span class="s2">--i-distance-matrix core-metrics-results-rarefied-nopro-rooted-try2/weighted_unifrac_distance_matrix.qza \</span></p>
+<p class="p23"><span class="s2">--m-metadata-file sample-metadata_merged_qpcr1_nopro_again.tsv \</span></p>
+<p class="p23"><span class="s2">--m-metadata-column Body_Type \</span></p>
+<p class="p23"><span class="s2">--p-method 'permdisp' \</span></p>
+<p class="p23"><span class="s2">--p-pairwise \</span></p>
+<p class="p23"><span class="s2">--o-visualization core-metrics-results-rarefied-nopro-rooted-try2/wunifrac_body_permdisp.qzv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p1"><span class="s1"><b>#beta diversity statistics: pairwise</b></span></p>
+<p class="p19"><span class="s1"><b></b></span><br></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix unweighted_unifrac_distance_matrix.qza</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Body_Type \</span></p>
+<p class="p14"><span class="s2">     --o-visualization unweighted-unifrac-compartment-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix weighted_unifrac_distance_matrix.qza</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Body_Type \</span></p>
+<p class="p14"><span class="s2">     --o-visualization weighted-unifrac-compartment-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix weighted_unifrac_distance_matrix.qza</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Species \</span></p>
+<p class="p14"><span class="s2">     --o-visualization weighted-unifrac-species-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix unweighted_unifrac_distance_matrix.qza</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Species \</span></p>
+<p class="p14"><span class="s2">     --o-visualization unweighted-unifrac-species-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix weighted_unifrac_distance_matrix.qza</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Caste_Type \</span></p>
+<p class="p14"><span class="s2">     --o-visualization weighted-unifrac-caste-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix unweighted_unifrac_distance_matrix.qza</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Caste_Type \</span></p>
+<p class="p14"><span class="s2">     --o-visualization unweighted-unifrac-caste-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix bray_curtis_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Body_Type \</span></p>
+<p class="p14"><span class="s2">     --o-visualization bray-compartment-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix bray_curtis_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Species \</span></p>
+<p class="p14"><span class="s2">     --o-visualization bray-species-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix bray_curtis_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Caste_Type \</span></p>
+<p class="p14"><span class="s2">     --o-visualization bray-caste-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix bray_curtis_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Colony \</span></p>
+<p class="p14"><span class="s2">     --o-visualization bray-colony-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix weighted_unifrac_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_rarefied_nopro_qiime_colony.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Colony \</span></p>
+<p class="p14"><span class="s2">     --o-visualization weighted_unifrac-colony-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity beta-group-significance</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --i-distance-matrix unweighted_unifrac_distance_matrix.qza \</span></p>
+<p class="p14"><span class="s2">     --m-metadata-file</span><span class="s8"> </span><span class="s2">sample-metadata_rarefied_nopro_qiime_colony.tsv \</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --m-metadata-column Colony \</span></p>
+<p class="p14"><span class="s2">     --o-visualization unweighted_unifrac-colony-significance.qzv</span><span class="s8"> </span><span class="s2">\</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p14"><span class="s2">     --p-pairwise</span></p>
+<p class="p25"><span class="s2"></span><br></p>
+<p class="p25"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">#no gaster</span></p>
+<p class="p25"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">qiime tools import </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --type 'FeatureTable[Frequency]'  </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p22"><span class="s8">  --input-path </span><span class="s2">otu_decontam_nopro_nogaster.biom</span><span class="s8"> </span><span class="s9"><b>\</b></span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p18"><span class="s2"><b>  --input-format </b></span><span class="s17"><b>BIOMV100Format</b></span><span class="s2"><b> \</b></span></p>
+<p class="p3"><span class="s2">  --output-path feature-table_phylo_nopro_nogaster_decontam.qza</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">qiime feature-table filter-seqs </span><span class="s7"><b>\</b></span></p>
+<p class="p3"><span class="s2">  --i-data merged-rep-seqs.qza  </span><span class="s7"><b>\</b></span></p>
+<p class="p3"><span class="s2">  --i-table feature-table_phylo_nopro_nogaster_decontam.qza </span><span class="s7"><b>\</b></span></p>
+<p class="p18"><span class="s2"><b>  --p-no-exclude-ids  \</b></span></p>
+<p class="p3"><span class="s2">  --o-filtered-data rep-seqs-decontam-nopro-nogaster.qza</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s18">qiime</span><span class="s2"> </span><span class="s18">phylogeny</span><span class="s2"> </span><span class="s18">align</span><span class="s2">-to-</span><span class="s18">tree</span><span class="s2">-</span><span class="s18">mafft</span><span class="s2">-fast</span><span class="s18">tree</span><span class="s2"> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --i-sequences rep-seqs-decontam-nopro_nogaster.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-</span><span class="s18">align</span><span class="s2">ment aligned-rep-seqs-decontam-nopro_noG.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-masked-alignment masked-aligned-rep-seqs-decontam-nopro_noG.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-tree unrooted-tree-decontam-nopro_noG.qza </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --o-rooted-tree  rooted-tree-decontam-nopro_noG.qza <span class="Apple-converted-space"> </span></span></p>
+<p class="p25"><span class="s2"></span><br></p>
+<p class="p3"><span class="s18">qiime</span><span class="s2"> diversity core-metrics-phylogenetic </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p7"><span class="s13">  --i-</span><span class="s19">phylogeny</span><span class="s13"> </span><span class="s2">rooted-tree-decontam-nopro_noG.qza</span><span class="s13"> </span><span class="s7"><b>\</b></span><span class="s13"><span class="Apple-converted-space"> </span></span></p>
+<p class="p7"><span class="s13">  --i-table </span><span class="s2">feature-table_phylo_nopro_nogaster_decontam.qza</span><span class="s13"> </span><span class="s7"><b>\</b></span><span class="s13"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --p-sampling-depth </span><span class="s10">13814</span><span class="s2"> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p7"><span class="s13">  --m-metadata-file </span><span class="s2">sample-metadata_merged_qpcr1_nopro_again.tsv</span><span class="s13"> </span><span class="s7"><b>\</b></span><span class="s13"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">  --output-dir core-metrics-results-rarefied-nopro-rooted-nogaster</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">qiime diversity adonis \</span></p>
+<p class="p16"><span class="s11">--i-distance-matrix </span><span class="s2">core-metrics-results-rarefied-nopro-rooted-nogaster</span><span class="s11">/</span><span class="s2">weighted_unifrac_distance_matrix_nogaster.qza </span><span class="s11"> \</span></p>
+<p class="p14"><span class="s2">--m-metadata-file sample-metadata_merged_qpcr1_nopro_again.tsv \</span></p>
+<p class="p14"><span class="s2">--p-formula "Body_Type*Species*Caste_Type*Colony" \</span></p>
+<p class="p14"><span class="s2">--p-permutations 999 \</span></p>
+<p class="p14"><span class="s2">--o-visualization</span><span class="s8"> core-metrics-results-rarefied-nopro-rooted-nogaster</span><span class="s2">/ADONIS-weighted_unifrac_nogaster.qzv</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p25"><span class="s2"></span><br></p>
+<p class="p25"><span class="s2"></span><br></p>
+<p class="p25"><span class="s2"></span><br></p>
+<p class="p14"><span class="s2">#### Bacterial Phylogenies for JANE Analysis #####</span></p>
+<p class="p2"><span class="s20"><b></b></span><br></p>
+<p class="p3"><span class="s20"><b>#importing the feature table from phyloseq</b></span></p>
+<p class="p3"><span class="s2">qiime tools import \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--input-path physeq_rarefied_withpro_qiime_rooted.biom \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--type 'FeatureTable[Frequency]' \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--input-format BIOMV100Format \<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">--output-path feature-table_physeq_rarefied_withpro_qiime_rooted.qza<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s20"><b></b></span><br></p>
+<p class="p3"><span class="s20"><b>#For grouping by species </b></span></p>
+<p class="p26"><span class="s21">qiime</span><span class="s3"> </span><span class="s22">feature-table group \</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p27"><span class="s23">--i-table</span><span class="s2"> feature-table_physeq_rarefied_withpro_qiime_rooted.qza</span><span class="s23">\</span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p27"><span class="s23">--p-axis</span><span class="s2"> sample </span><span class="s23">\</span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p28"><span class="s23">--m-metadata-file</span><span class="s13"> </span><span class="s2">sample-metadata_rarefied_withpro_qiime.tsv</span><span class="s23">\</span><span class="s13"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--m-metadata-column</span><span class="s3"> Species </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--p-mode</span><span class="s3"> </span><span class="s24">sum</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p28"><span class="s23">--output-dir</span><span class="s13"> </span><span class="s2">species-rarefied-withpro-rooted-</span><span class="s25">merged-table</span><span class="s26">.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table summarize</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p30"><span class="s23">--i-table</span><span class="s3"> </span><span class="s22">species-rarefied-withpro-rooted-</span><span class="s27">merged-table</span><span class="s28">.qza</span><span class="s3"> </span><span class="s23">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p31"><span class="s29">--o-visualization</span><span class="s3"> </span><span class="s30">species-rarefied-withpro-rooted-</span><span class="s31">merged-table</span><span class="s22">.qzv</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p16"><span class="s2">#filter rep-seqs file for decontaminated OTUs<span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><span class="s2">qiime feature-table filter-seqs \<span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><span class="s2">--i-data merged-rep-seqs.qza \<span class="Apple-converted-space"> </span></span></p>
+<p class="p32"><span class="s3">--i-table </span><span class="s22">species-rarefied-withpro-rooted-</span><span class="s27">merged-table</span><span class="s28">.qza</span><span class="s3"> \<span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><span class="s2">--p-no-exclude-ids \<span class="Apple-converted-space"> </span></span></p>
+<p class="p32"><span class="s3">--o-filtered-data rep-seqs-</span><span class="s22">species-rarefied-withpro-rooted-</span><span class="s27">merged-table</span><span class="s28">.qza</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p25"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>#betaproteobacteriales #</b></span></p>
+<p class="p3"><span class="s20"><b>Betaproteo Filtering Sequences and new subset tree </b></span></p>
+<p class="p26"><span class="s22">qiime taxa filter-table \</span></p>
+<p class="p30"><span class="s23">--i-table</span><span class="s3"> </span><span class="s22">species-rarefied-withpro-rooted-</span><span class="s27">merged-table</span><span class="s28">.qza</span><span class="s3"> </span><span class="s23">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-taxonomy taxonomy.qza \</span></p>
+<p class="p28"><span class="s23">--p-include</span><span class="s13">  '</span><span class="s2">D_0__Bacteria;D_1__Proteobacteria;D_2__Gammaproteobacteria;D_3__Betaproteobacteriales' \</span></p>
+<p class="p26"><span class="s22">--o-filtered-table betaproteo-table.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table summarize</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-table</span><span class="s3"> </span><span class="s22">betaproteo-table.qza</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-visualization</span><span class="s3"> </span><span class="s22">betaproteo-table.qzv</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>qiime feature-table filter-seqs \</b></span></p>
+<p class="p33"><span class="s3"><b>--i-data rep-seqs-</b></span><span class="s22"><b>species-rarefied-withpro-rooted-</b></span><span class="s27"><b>merged-table</b></span><span class="s28"><b>.qza</b></span><span class="s3"><b> \</b></span></p>
+<p class="p3"><span class="s2"><b>--m-metadata-file</b> </span><span class="s23"><b>betaproteo</b></span><span class="s2"><b>-ASVs-to-keep.tsv</b> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s7"><b>--</b></span><span class="s2"><b>p-no-exclude-ids \</b></span></p>
+<p class="p3"><span class="s2"><b>--o-filtered-data</b> </span><span class="s23"><b>betaproteo</b></span><span class="s2"><b>-merged-rep-seqs.qza</b><span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table tabulate-seqs</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p34"><span class="s28">--i-data</span><span class="s3"> </span><span class="s28"><b>betaproteo</b></span><span class="s22"><b>-merged-rep-seqs.qza</b></span><span class="s3"> </span><span class="s28">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-visualization</span><span class="s3"> </span><span class="s22"><b>betaproteo</b></span><span class="s30"><b>-merged-rep-seqs.qzv</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime phylogeny align-to-tree-mafft-fasttree \</span></p>
+<p class="p26"><span class="s22">--i-sequences</span><span class="s3"> </span><span class="s22"><b>betaproteo-</b></span><span class="s30"><b>merged-rep-seqs.qza</b></span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-alignment aligned-<b>betaproteo</b>-rep-seqs.qza \</span></p>
+<p class="p26"><span class="s22">--o-masked-alignment masked-<b>betaproteo</b>-aligned-rep-seqs.qza \</span></p>
+<p class="p26"><span class="s22">--o-tree unrooted-<b>betaproteo</b>-tree.qza \</span></p>
+<p class="p26"><span class="s22">--o-rooted-tree rooted-<b>betaproteo</b>-tree.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path </span><span class="s22">unrooted-<b>betaproteo</b>-tree.qza</span><span class="s32">\</span></p>
+<p class="p35"><span class="s2">  --output-path</span><span class="s8"> </span><span class="s23"><b>betaproteo</b></span><span class="s2">_species</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path </span><span class="s22">rooted-<b>betaproteo</b>-tree.qza</span><span class="s32">\</span></p>
+<p class="p35"><span class="s2">  --output-path</span><span class="s8"> </span><span class="s23"><b>betaproteo</b></span><span class="s2">_species</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p16"><span class="s2">qiime tools extract </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22"><b>--input-path</b></span><span class="s3"> </span><span class="s22"><b>betaproteo-table.qza</b></span><span class="s3"> </span><span class="s9"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p27"><span class="s2"> --output-path extracted-feature-table-</span><span class="s23"><b>betaproteo</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s14">biom co</span><span class="s2">nvert -i feature-table.biom -o</span><span class="s8"> </span><span class="s23"><b>betaproteo</b></span><span class="s2">_otu_table.txt --to-tsv</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">#<b>RHIZOBIALES#</b></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p3"><span class="s20"><b>#Rhizobiales Filtering Sequences and new subset tree #</b></span></p>
+<p class="p26"><span class="s22">qiime taxa filter-table \</span></p>
+<p class="p30"><span class="s23">--i-table</span><span class="s3"> </span><span class="s22">species-rarefied-withpro-rooted-</span><span class="s27">merged-table</span><span class="s28">.qza</span><span class="s3"> </span><span class="s23">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-taxonomy taxonomy.qza \</span></p>
+<p class="p28"><span class="s23">--p-include</span><span class="s13"> '</span><span class="s2">D_0__Bacteria;D_1__Proteobacteria;D_2__Alphaproteobacteria;D_3__Rhizobiales' \</span></p>
+<p class="p26"><span class="s22">--o-filtered-table rhizobiales-table1.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table summarize</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-table rhizobiales-table1.qza \</span></p>
+<p class="p26"><span class="s22">--o-visualization rhizobiales-table1.qzv</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>qiime feature-table filter-seqs \</b></span></p>
+<p class="p33"><span class="s3"><b>--i-data</b> <b>rep-seqs-</b></span><span class="s22"><b>species-rarefied-withpro-rooted-</b></span><span class="s27"><b>merged-table</b></span><span class="s28"><b>.qza</b></span><span class="s3"><b> \</b><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2"><b>--m-metadata-file rhizobiales-ASVs-to-keep.tsv</b> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s7"><b>--</b></span><span class="s2"><b>p-no-exclude-ids \</b></span></p>
+<p class="p3"><span class="s2"><b>--o-filtered-data rhizobiales-merged-rep-seqs1.qza</b></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table tabulate-seqs</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p34"><span class="s28">--i-data</span><span class="s3"> </span><span class="s22"><b>rhizobiales-merged-rep-seqs1.qza</b></span><span class="s3"> </span><span class="s28">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p34"><span class="s28">--o-visualization</span><span class="s3"> </span><span class="s22"><b>rhizobiales-merged-rep-seqs1.qzv</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime phylogeny align-to-tree-mafft-fasttree \</span></p>
+<p class="p34"><span class="s28">--i-sequences</span><span class="s3"> </span><span class="s22"><b>rhizobiales-merged-rep-seqs1.qza</b></span><span class="s3"> </span><span class="s28">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-alignment aligned-rhizobiales-rep-seqs1.qza \</span></p>
+<p class="p26"><span class="s22">--o-masked-alignment masked-rhizobiales-aligned-rep-seqs1.qza \</span></p>
+<p class="p26"><span class="s22">--o-tree unrooted-rhizobiales-tree1.qza \</span></p>
+<p class="p26"><span class="s22">--o-rooted-tree rooted-rhizobiales-tree1.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path </span><span class="s22">unrooted-rhizobiales-tree1.qza</span><span class="s32">\</span></p>
+<p class="p35"><span class="s2">  --output-path exported-feature-table</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path</span><span class="s3"> </span><span class="s22">rooted-rhizobiales-tree1.qza</span><span class="s32">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p35"><span class="s2">  --output-path rooted_rhizo</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path un</span><span class="s22">rooted-rhizobiales-tree1.qza</span><span class="s32">\</span></p>
+<p class="p35"><span class="s2">  --output-path Rhizobiales_species</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p16"><span class="s2">mkdir extracted-feature-table<span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><span class="s2">qiime tools extract </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22"><b>--input-path Rhizobiales_species/rhizobiales-table1.qza</b></span><span class="s3"> </span><span class="s9"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p27"><span class="s2"> --output-path </span><span class="s23"><b>Rhizobiales_species/</b></span><span class="s2">extracted-feature-table-rhizo<span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p27"><span class="s2">qiime tools </span><span class="s33">export</span><span class="s2"> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s3">  --input-path </span><span class="s22"><b>Rhizobiales_species/rhizobiales-table1.qza</b></span><span class="s3"> </span><span class="s9"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p27"><span class="s2">  --output-path exported-feature-table<span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s14">biom co</span><span class="s2">nvert -i feature-table.biom -o otu_table.txt --to-tsv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">#<b>OPITUTALES#</b></span></p>
+<p class="p3"><span class="s20"><b>#Opitutales Filtering Sequences and new subset tree #</b></span></p>
+<p class="p26"><span class="s22">qiime taxa filter-table \</span></p>
+<p class="p30"><span class="s23">--i-table</span><span class="s3"> </span><span class="s22">species-rarefied-withpro-rooted-</span><span class="s27">merged-table</span><span class="s28">.qza</span><span class="s3"> </span><span class="s23">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-taxonomy taxonomy.qza \</span></p>
+<p class="p28"><span class="s23">--p-include</span><span class="s13">  '</span><span class="s2">D_0__Bacteria;D_1__Verrucomicrobia;D_2__Verrucomicrobiae;D_3__Opitutales' \</span></p>
+<p class="p26"><span class="s22">--o-filtered-table opitutales-table-rare.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table summarize</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-table</span><span class="s3"> </span><span class="s22">opitutales-table-rare.qza</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-visualization</span><span class="s3"> </span><span class="s22">opitutales-table-rare.qzv</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>qiime feature-table filter-seqs \</b></span></p>
+<p class="p33"><span class="s3"><b>--i-data</b> <b>rep-seqs-</b></span><span class="s22"><b>species-rarefied-withpro-rooted-</b></span><span class="s27"><b>merged-table</b></span><span class="s28"><b>.qza</b></span><span class="s3"><b> \</b><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2"><b>--m-metadata-file opitutales-ASVs-to-keep-rare.tsv</b> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s7"><b>--</b></span><span class="s2"><b>p-no-exclude-ids \</b></span></p>
+<p class="p3"><span class="s2"><b>--o-filtered-data opitutales-rare-merged-rep-seqs.qza</b></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table tabulate-seqs</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p34"><span class="s28">--i-data</span><span class="s3"> </span><span class="s22"><b>opitutales-rare-merged-rep-seqs.qza</b></span><span class="s3"> </span><span class="s28">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p34"><span class="s28">--o-visualization</span><span class="s3"> </span><span class="s22"><b>opitutales-rare-merged-rep-seqs.qzv</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime phylogeny align-to-tree-mafft-fasttree \</span></p>
+<p class="p34"><span class="s28">--i-sequences</span><span class="s3"> </span><span class="s22"><b>opitutales-rare-merged-rep-seqs.qza</b></span><span class="s28">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-alignment aligned-opitutales-rare-rep-seqs.qza \</span></p>
+<p class="p26"><span class="s22">--o-masked-alignment masked-opitutales-rare-aligned-rep-seqs.qza \</span></p>
+<p class="p26"><span class="s22">--o-tree unrooted-opitutales-rare-tree.qza \</span></p>
+<p class="p26"><span class="s22">--o-rooted-tree rooted-opitutales-rare-tree.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path </span><span class="s22">unrooted-opitutales-rare-tree.qza</span><span class="s32">\</span></p>
+<p class="p35"><span class="s2">  --output-path Opitutales1</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path </span><span class="s22">rooted-opitutales-rare-tree.qza</span><span class="s32">\</span></p>
+<p class="p35"><span class="s2">  --output-path Opitutales1</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p16"><span class="s2">qiime tools extract </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p37"><span class="s28"><b>--input-path</b></span><span class="s3"> </span><span class="s22"><b>opitutales-table-rare.qza</b></span><span class="s3"> </span><span class="s9"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p27"><span class="s2"> --output-path extracted-feature-table-opit<span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s14">biom co</span><span class="s2">nvert -i feature-table.biom -o opit_otu_table.txt --to-tsv</span></p>
+<p class="p19"><span class="s1"><b></b></span><br></p>
+<p class="p3"><span class="s2"><b>#RICKETTSIALES#</b></span></p>
+<p class="p3"><span class="s20"><b>Rickettsiales Filtering Sequences and new subset tree </b></span></p>
+<p class="p26"><span class="s22">qiime taxa filter-table \</span></p>
+<p class="p30"><span class="s23">--i-table</span><span class="s3"> </span><span class="s22">species-rarefied-withpro-rooted-</span><span class="s27">merged-table</span><span class="s28">.qza</span><span class="s3"> </span><span class="s23">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-taxonomy taxonomy.qza \</span></p>
+<p class="p28"><span class="s23">--p-include</span><span class="s13">  '</span><span class="s2">D_0__Bacteria;D_1__Proteobacteria;D_2__Alphaproteobacteria;D_3__Rickettsiales' \</span></p>
+<p class="p26"><span class="s22">--o-filtered-table rickettsiales-table.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table summarize</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-table</span><span class="s3"> </span><span class="s22">rickettsiales-table.qza</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-visualization</span><span class="s3"> </span><span class="s22">rickettsiales-table.qzv</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>qiime feature-table filter-seqs \</b></span></p>
+<p class="p33"><span class="s3"><b>--i-data rep-seqs-</b></span><span class="s22"><b>species-rarefied-withpro-rooted-</b></span><span class="s27"><b>merged-table</b></span><span class="s28"><b>.qza</b></span><span class="s3"><b> \</b></span></p>
+<p class="p3"><span class="s2"><b>--m-metadata-file</b> </span><span class="s23"><b>rickettsiales</b></span><span class="s2"><b>-ASVs-to-keep.tsv</b> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s7"><b>--</b></span><span class="s2"><b>p-no-exclude-ids \</b></span></p>
+<p class="p3"><span class="s2"><b>--o-filtered-data</b> </span><span class="s23"><b>rickettsiales</b></span><span class="s2"><b>-merged-rep-seqs.qza</b><span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table tabulate-seqs</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-data</span><span class="s3"> </span><span class="s22"><b>rickettsiales</b></span><span class="s30"><b>-merged-rep-seqs.qza</b></span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-visualization</span><span class="s3"> </span><span class="s22"><b>rickettsiales</b></span><span class="s30"><b>-merged-rep-seqs.qzv</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime phylogeny align-to-tree-mafft-fasttree \</span></p>
+<p class="p26"><span class="s22">--i-sequences</span><span class="s3"> </span><span class="s22"><b>rickettsiales-</b></span><span class="s30"><b>merged-rep-seqs.qza</b></span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-alignment aligned-rickettsiales-rep-seqs.qza \</span></p>
+<p class="p26"><span class="s22">--o-masked-alignment masked-rickettsiales-aligned-rep-seqs.qza \</span></p>
+<p class="p26"><span class="s22">--o-tree unrooted-rickettsiales-tree.qza \</span></p>
+<p class="p26"><span class="s22">--o-rooted-tree rooted-rickettsiales-tree.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path </span><span class="s22">unrooted-rickettsiales-tree.qza</span><span class="s32">\</span></p>
+<p class="p35"><span class="s2">  --output-path Rickettsiales_species</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path </span><span class="s22">rooted-rickettsiales-tree.qza</span><span class="s32">\</span></p>
+<p class="p35"><span class="s2">  --output-path Rickettsiales_species</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p16"><span class="s2">qiime tools extract </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22"><b>--input-path</b></span><span class="s3"> </span><span class="s22"><b>rickettsiales-table.qza</b></span><span class="s3"> </span><span class="s9"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p27"><span class="s2"> --output-path extracted-feature-table-rickettsiales<span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s14">biom co</span><span class="s2">nvert -i feature-table.biom -o rickettsiales_otu_table.txt --to-tsv</span></p>
+<p class="p38"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">#Enterobacteriales #</span></p>
+<p class="p3"><span class="s20"><b>Enterobacteriales Filtering Sequences and new subset tree </b></span></p>
+<p class="p26"><span class="s22">qiime taxa filter-table \</span></p>
+<p class="p30"><span class="s23">--i-table</span><span class="s3"> </span><span class="s22">species-rarefied-withpro-rooted-</span><span class="s27">merged-table</span><span class="s28">.qza</span><span class="s3"> </span><span class="s23">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-taxonomy taxonomy.qza \</span></p>
+<p class="p28"><span class="s23">--p-include</span><span class="s13">  '</span><span class="s2">D_0__Bacteria;D_1__Proteobacteria;D_2__Gammaproteobacteria;D_3__Enterobacteriales' \</span></p>
+<p class="p26"><span class="s22">--o-filtered-table enterobacteriales-table.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table summarize</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-table</span><span class="s3"> </span><span class="s22">enterobacteriales-table.qza</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-visualization</span><span class="s3"> </span><span class="s22">enterobacteriales-table.qzv</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>qiime feature-table filter-seqs \</b></span></p>
+<p class="p33"><span class="s3"><b>--i-data</b> <b>rep-seqs-</b></span><span class="s22"><b>species-rarefied-withpro-rooted-</b></span><span class="s27"><b>merged-table</b></span><span class="s28"><b>.qza</b></span><span class="s3"><b> \</b><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2"><b>--m-metadata-file</b> </span><span class="s23"><b>enterobacteriales</b></span><span class="s2"><b>-ASVs-to-keep.tsv</b> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s7"><b>--</b></span><span class="s2"><b>p-no-exclude-ids \</b></span></p>
+<p class="p3"><span class="s2"><b>--o-filtered-data</b> </span><span class="s23"><b>enterobacteriales</b></span><span class="s2"><b>-merged-rep-seqs.qza</b><span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table tabulate-seqs</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-data</span><span class="s3"> </span><span class="s22"><b>enterobacteriales</b></span><span class="s30"><b>-merged-rep-seqs.qza</b></span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-visualization</span><span class="s3"> </span><span class="s22"><b>enterobacteriales</b></span><span class="s30"><b>-merged-rep-seqs.qzv</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime phylogeny align-to-tree-mafft-fasttree \</span></p>
+<p class="p26"><span class="s22">--i-sequences</span><span class="s3"> </span><span class="s22"><b>enterobacteriales-</b></span><span class="s30"><b>merged-rep-seqs.qza</b></span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-alignment aligned-enterobacteriales-rep-seqs.qza \</span></p>
+<p class="p26"><span class="s22">--o-masked-alignment masked-enterobacteriales-aligned-rep-seqs.qza \</span></p>
+<p class="p26"><span class="s22">--o-tree unrooted-enterobacteriales-tree.qza \</span></p>
+<p class="p26"><span class="s22">--o-rooted-tree rooted-enterobacteriales-tree.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path </span><span class="s22">unrooted-enterobacteriales-tree.qza</span><span class="s32">\</span></p>
+<p class="p36"><span class="s32">  --output-path E</span><span class="s22">nterobacteriales_species</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path </span><span class="s22">rooted-enterobacteriales-tree.qza</span><span class="s32">\</span></p>
+<p class="p36"><span class="s32">  --output-path E</span><span class="s22">nterobacteriales_species</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p16"><span class="s2">qiime tools extract </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22"><b>--input-path</b></span><span class="s3"> </span><span class="s34"><b>E</b></span><span class="s22"><b>nterobacteriales-table.qza</b></span><span class="s3"> </span><span class="s9"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p27"><span class="s2"> --output-path extracted-feature-table-entero<span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s14">biom co</span><span class="s2">nvert -i feature-table.biom -o entero_otu_table.txt --to-tsv</span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p16"><span class="s2">#Xanthomonadales #</span></p>
+<p class="p3"><span class="s20"><b>#Xanthomonadales Filtering Sequences and new subset tree #</b></span></p>
+<p class="p26"><span class="s22">qiime taxa filter-table \</span></p>
+<p class="p30"><span class="s23">--i-table</span><span class="s3"> </span><span class="s22">species-rarefied-withpro-rooted-</span><span class="s27">merged-table</span><span class="s28">.qza</span><span class="s3"> </span><span class="s23">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-taxonomy taxonomy.qza \</span></p>
+<p class="p28"><span class="s23">--p-include</span><span class="s13">  '</span><span class="s2">D_0__Bacteria;D_1__Proteobacteria;D_2__Gammaproteobacteria;D_3__Xanthomonadales' \</span></p>
+<p class="p26"><span class="s22">--o-filtered-table</span><span class="s3"> </span><span class="s30">Xanthomonadales</span><span class="s22">-table.qza</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table summarize</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--i-table</span><span class="s3"> </span><span class="s30">Xanthomonadales</span><span class="s22">-table.qza</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-visualization</span><span class="s3"> </span><span class="s30">Xanthomonadales</span><span class="s22">-table.qzv</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>qiime feature-table filter-seqs \</b></span></p>
+<p class="p33"><span class="s3"><b>--i-data</b> <b>rep-seqs-</b></span><span class="s22"><b>species-rarefied-withpro-rooted-</b></span><span class="s27"><b>merged-table</b></span><span class="s28"><b>.qza</b></span><span class="s3"><b> \</b><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2"><b>--m-metadata-file</b> </span><span class="s35"><b>Xanthomonadales</b></span><span class="s2"><b>-ASVs-to-keep.tsv</b> </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s7"><b>--</b></span><span class="s2"><b>p-no-exclude-ids \</b></span></p>
+<p class="p3"><span class="s2"><b>--o-filtered-data</b> </span><span class="s35"><b>Xanthomonadales</b></span><span class="s2"><b>-merged-rep-seqs.qza</b><span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime feature-table tabulate-seqs</span><span class="s3"> </span><span class="s22">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p34"><span class="s28">--i-data</span><span class="s3"> </span><span class="s22"><b>Xanthomonadales-merged-rep-seqs.qza</b></span><span class="s3"> </span><span class="s28">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p34"><span class="s28">--o-visualization</span><span class="s3"> </span><span class="s22"><b>Xanthomonadales-merged-rep-seqs.qzv</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p26"><span class="s22">qiime phylogeny align-to-tree-mafft-fasttree \</span></p>
+<p class="p34"><span class="s28">--i-sequences</span><span class="s3"> </span><span class="s22"><b>Xanthomonadales</b></span><span class="s28"><b>-</b></span><span class="s22"><b>merged-rep-seqs.qza</b></span><span class="s28">\</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22">--o-alignment aligned-</span><span class="s30">Xanthomonadales</span><span class="s22">-rep-seqs.qza \</span></p>
+<p class="p26"><span class="s22">--o-masked-alignment masked-</span><span class="s30">Xanthomonadales</span><span class="s22">-aligned-rep-seqs.qza \</span></p>
+<p class="p26"><span class="s22">--o-tree unrooted-</span><span class="s30">Xanthomonadales</span><span class="s22">-tree.qza \</span></p>
+<p class="p26"><span class="s22">--o-rooted-tree rooted-</span><span class="s30">Xanthomonadales</span><span class="s22">-tree.qza</span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path </span><span class="s22">unrooted-</span><span class="s30">Xanthomonadales</span><span class="s22">-tree.qza</span><span class="s32">\</span></p>
+<p class="p35"><span class="s2">  --output-path</span><span class="s8"> </span><span class="s2">Xanthomonadales</span><span class="s23">_species</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p35"><span class="s2">qiime tools export \</span></p>
+<p class="p36"><span class="s32"> --input-path </span><span class="s22">rooted-</span><span class="s30">Xanthomonadales</span><span class="s22">-tree.qza</span><span class="s32">\</span></p>
+<p class="p35"><span class="s2">  --output-path</span><span class="s8"> </span><span class="s2">Xanthomonadales</span><span class="s23">_species</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p9"><span class="s2"></span><br></p>
+<p class="p16"><span class="s2">qiime tools extract </span><span class="s7"><b>\</b></span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+<p class="p26"><span class="s22"><b>--input-path</b></span><span class="s3"> </span><span class="s34"><b>Xanthomonadales</b></span><span class="s22"><b>-table.qza</b></span><span class="s3"> </span><span class="s9"><b>\</b></span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p27"><span class="s2"> --output-path extracted-feature-table-xantha<span class="Apple-converted-space"> </span></span></p>
+<p class="p29"><span class="s2"></span><br></p>
+<p class="p35"><span class="s14">biom co</span><span class="s2">nvert -i feature-table.biom -o otu_table.txt --to-tsv</span></p>
+<p class="p19"><span class="s1"><b></b></span><br></p>
+<p class="p9"><span class="s2"></span><br></p>
+</body>
+</html>
