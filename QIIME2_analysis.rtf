@@ -1,0 +1,2524 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier-Bold;
+\f3\fmodern\fcharset0 Courier;\f4\fnil\fcharset0 Menlo-Regular;\f5\fnil\fcharset0 Monaco;
+\f6\fnil\fcharset0 HelveticaNeue;\f7\froman\fcharset0 TimesNewRomanPSMT;\f8\fnil\fcharset0 Menlo-Bold;
+\f9\fswiss\fcharset0 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red38\green38\blue38;\red242\green242\blue242;
+\red50\green91\blue142;\red29\green111\blue63;\red251\green2\blue7;\red255\green255\blue255;\red27\green31\blue34;
+\red251\green2\blue7;\red251\green2\blue7;\red250\green226\blue62;\red14\green110\blue109;\red246\green246\blue246;
+\red210\green0\blue53;\red27\green31\blue34;\red13\green95\blue24;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c20000\c20000\c20000;\cssrgb\c96078\c96078\c96078;
+\cssrgb\c25098\c43922\c62745;\cssrgb\c12549\c50196\c31373;\cssrgb\c100000\c14913\c0;\cssrgb\c100000\c100000\c100000;\csgenericrgb\c10588\c12157\c13333;
+\cssrgb\c100000\c14902\c0;\cssrgb\c100000\c14913\c0;\cssrgb\c98431\c89804\c30588;\cssrgb\c0\c50196\c50196;\cssrgb\c97255\c97255\c97255;
+\cssrgb\c86667\c6667\c26667;\cssrgb\c14118\c16078\c17647;\cssrgb\c0\c43922\c12549;}
+\margl1440\margr1440\vieww28820\viewh15560\viewkind0
+\deftab720
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\b\fs28 \cf0 \CocoaLigature0 #QIIME2 Analysis \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\b0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+##### 16S rRNA amplicon sequencing run ####\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b\fs28 \cf3 # Make paired end sequence artifact
+\f3\b0\fs24 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\fs28 \cf3 qiime tools import \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0\'a0 --type EMPPairedEndSequences \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0\'a0 --input-path paired-end-sequences \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0\'a0 --output-path paired-end-sequences.qza
+\f1\fs24 \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3 \cf3 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b\fs28 \cf3 # Demultiplex the sequence reads
+\f3\b0\fs24 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\fs28 \cf3 qiime demux emp-paired \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0 --m-barcodes-file sample-metadata_try3.tsv \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0 --m-barcodes-column BarcodeSequence \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0 --i-seqs emp-paired-end-sequences.qza \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0 --o-per-sample-sequences demux.qza
+\f1\fs24 \cf2  
+\f3\fs28 \cf3 \\
+\f1\fs24 \cf2  \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3 \cf3 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\fs28 \cf3 qiime demux summarize \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0 --i-data demux.qza \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0 --o-visualization demux.qzv
+\f1\fs24 \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3 \cf3 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b\fs28 \cf3 # View demultiplexed reads plot
+\f1\b0\fs24 \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3 \cf3 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\fs28 \cf3 qiime tools view demux.qzv
+\f1\fs24 \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3 \cf3 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3 \cf3 \cb4 #chose trim left at 12\'a0because first time that base pair\'a0quality score went to 38
+\f1 \cf2 \cb1 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f3\fs28 \cf3 \cb4 qiime dada2 denoise-paired
+\f1\fs24 \cf2 \cb1  
+\f2\b\fs28 \cf5 \cb4 \\
+\f1\b0\fs24 \cf2 \cb1  \
+
+\f3\fs28 \cf3 \cb4 \'a0 --i-demultiplexed-seqs demux.qza
+\f1\fs24 \cf2 \cb1  
+\f2\b\fs28 \cf5 \cb4 \\
+\f1\b0\fs24 \cf2 \cb1  \
+
+\f3\fs28 \cf3 \cb4 \'a0 --o-table table_run1.qza
+\f1\fs24 \cf2 \cb1  
+\f2\b\fs28 \cf5 \cb4 \\
+\f1\b0\fs24 \cf2 \cb1  \
+
+\f3\fs28 \cf3 \cb4 \'a0 --o-representative-sequences rep-seqs-run1.qza
+\f1\fs24 \cf2 \cb1  
+\f2\b\fs28 \cf5 \cb4 \\
+\f1\b0\fs24 \cf2 \cb1  \
+
+\f3\fs28 \cf3 \cb4 \'a0 --p-trim-left-f
+\f1\fs24 \cf2 \cb1  
+\f3\fs28 \cf6 \cb4 12
+\f1\fs24 \cf2 \cb1  
+\f2\b\fs28 \cf5 \cb4 \\
+\f1\b0\fs24 \cf2 \cb1  \
+
+\f3\fs28 \cf3 \cb4 \'a0 --p-trim-left-r
+\f1\fs24 \cf2 \cb1  
+\f3\fs28 \cf6 \cb4 12
+\f1\fs24 \cf2 \cb1  
+\f2\b\fs28 \cf5 \cb4 \\
+\f1\b0\fs24 \cf2 \cb1  \
+
+\f3\fs28 \cf3 \cb4 \'a0 --p-trunc-len-f
+\f1\fs24 \cf2 \cb1  
+\f3\fs28 \cf6 \cb4 150
+\f1\fs24 \cf2 \cb1  
+\f2\b\fs28 \cf5 \cb4 \\
+\f1\b0\fs24 \cf2 \cb1  \
+
+\f3\fs28 \cf3 \cb4 \'a0 --p-trunc-len-r
+\f1\fs24 \cf2 \cb1  
+\f3\fs28 \cf6 \cb4 150
+\f1\fs24 \cf2 \cb1  \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\
+\cf7 #### Run 2 (with extra Cephalotes texanus samples) ###
+\f4\fs22 \cf2 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b\fs28 \cf3 # Make paired end sequence artifact
+\f3\b0\fs24 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\fs28 \cf3 \
+qiime tools import \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0\'a0 --type EMPPairedEndSequences \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0\'a0 --input-path paired-end-sequences-run2 \\
+\f1\fs24 \cf2 \
+
+\f3\fs28 \cf3 \'a0\'a0 --output-path paired-end-sequences_run2.qza\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\fs24 \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 qiime demux emp-paired-sequences-run2 
+\b \cf5 \\
+\b0 \cf2  \
+--m-barcodes-file 
+\f4\fs22 argonne-fixed-metadata-try3.tsv
+\f1\fs24 \'a0
+\b \cf5 \\
+\b0 \cf2  \
+--m-barcodes-column BarcodeSequence 
+\b \cf5 \\
+\b0 \cf2  \
+--i-seqs emp-paired-end-sequences_run2.qza 
+\b \cf5 \\
+\b0 \cf2  \
+--o-per-sample-sequences demux_try2.qza\'a0 \
+\'a0 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4\fs22 \cf2 \'a0qiime demux summarize \\
+\f1\fs24 \
+
+\f4\fs22 --i-data demux_try2.qza \\
+\f1\fs24 \
+
+\f4\fs22 --o-visualization demux_try2.qzv
+\f1\fs24 \
+\
+qiime dada2 denoise-paired 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--i-demultiplexed-seqs demux_try2.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--p-trim-left-f \cf6 12\'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--p-trim-left-r \cf6 12\cf2 \'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--p-trunc-len-f \cf6 150\cf2  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--p-trunc-len-r \cf6 150\cf2  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--o-table table-run2.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--o-representative-sequences rep-seqs-run2.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--o-denoising-stats denoising-stats-run2.qza \
+\
+Filter\'a0 \
+qiime feature-table filter-samples 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--i-table table-run2.qza 
+\b \cf5 \\
+\b0 \cf2  \
+--m-metadata-file samples-to-keep.tsv 
+\b \cf5 \\
+\b0 \cf2  \
+--o-filtered-table id-filtered-run2.qza \
+\'a0 \
+qiime feature-table filter-seqs \\ \
+--i-data rep-seqs-run2.qza \\ \
+--i-table id-filtered-run2.qza\'a0 \\ \
+--p-exclude-ids \\ \
+--o-filtered-data rep-seqs-filtered-run2.qza \
+\
+#visualize feature table from run2 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f5 \cf2 qiime feature-table summarize \\
+\f1 \
+
+\f5 --i-table table_run1.qza \\
+\f1 \
+
+\f5 --o-visualization table_run1.qzv \\
+\f1 \
+
+\f5 --m-sample-metadata-file \cf2 sample-metadata_try3.tsv 
+\f1 \cf2 \
+\
+
+\f5 #visualize table from run1
+\f1 \
+
+\f5 qiime feature-table summarize \\
+\f1 \
+
+\f5 --i-table id-filtered-run2.qza \\
+\f1 \
+
+\f5 --o-visualization id-filtered-run2.qzv \\
+\f1 \
+
+\f5 --m-sample-metadata-file 
+\f4\fs22 \cf2 argonne-fixed-metadata-try3.tsv
+\f1\fs24 \cf2 \
+\
+
+\f5 qiime feature-table tabulate-seqs \\
+\f1 \
+
+\f5 \'a0 --i-data rep-seqs-filtered-run2.qza \\
+\f1 \
+
+\f5 \'a0 --o-visualization rep-seqs-filtered-run2.qzv
+\f1 \
+\
+qiime feature-table\cb8  merge\'a0\\ \
+--i-tables id-filtered-run2.qza \\ \cb1 \
+--i-tables table_run1.qza \\ \
+--o-merged-table merged-table.qza \
+\
+\cb8 qiime feature-table merge-seqs\'a0\\ \
+\cb1 --i-data rep-seqs-run1.qza \\ \
+--i-data rep-seqs-filtered-run2.qza \\ \
+--o-merged-data merged-rep-seqs.qza \
+\
+FOR FILTERED AND MERGED DATA \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 qiime tools import 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --type \cf5 'FeatureData[Sequence]'\cf2  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --input-path silva_132_99_16S.fna\'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --output-path 99_silva_otus.qza \
+\
+qiime tools import 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --type \cf5 'FeatureData[Taxonomy]'\cf2  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --input-format HeaderlessTSVTaxonomyFormat 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --input-path taxonomy_7_levels.txt\'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --output-path ref-taxonomy.qza \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 #Extract Reference Reads
+\b0 \cf2 \
+qiime feature-classifier extract-reads 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-sequences 99_silva_otus.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --p-f-primer GTGCCAGCMGCCGCGGTAA 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --p-r-primer GGACTACHVGGGTWTCTAAT 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --p-trunc-len \cf6 120\cf2  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-reads ref-seqs.qza \
+\
+
+\b \cf2 #Train the Classifier
+\b0 \cf2 \
+qiime feature-classifier fit-classifier-naive-bayes 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-reference-reads ref-seqs.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-reference-taxonomy ref-taxonomy.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-classifier classifier.qza \
+\
+
+\b \cf2 #Test the classifier
+\b0 \cf2 \
+qiime feature-classifier classify-sklearn 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-classifier classifier.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-reads merged-rep-seqs.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-classification taxonomy.qza \
+\
+
+\b \cf2 #Extract Reference Reads
+\b0 \cf2 \
+qiime feature-classifier extract-reads 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-sequences 99_silva_otus.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --p-f-primer GTGCCAGCMGCCGCGGTAA 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --p-r-primer GGACTACHVGGGTWTCTAAT 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --p-trunc-len \cf6 120\cf2  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-reads ref-seqs.qza \
+\
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4\fs22 \cf2 qiime feature-classifier fit-classifier-naive-bayes \\
+\f1\fs24 \
+
+\f4\fs22 --i-reference-reads ref-seqs.qza \\
+\f1\fs24 \
+
+\f4\fs22 --i-reference-taxonomy ref-taxonomy.qza \\
+\f1\fs24 \
+
+\f4\fs22 --o-classifier classifier.qza\
+
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 qiime feature-classifier classify-sklearn 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-classifier classifier.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-reads merged-rep-seqs.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-classification taxonomy.qza \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+\
+
+\f5 qiime feature-table summarize \\
+\f1 \
+
+\f5 \'a0 --i-table merged-table.qza \\
+\f1 \
+
+\f5 \'a0 --o-visualization merged-table.qzv \\
+\f1 \
+
+\f5 \'a0 --m-sample-metadata-file sample-metadata_merged.tsv
+\f1 \
+\
+
+\f5 qiime feature-table tabulate-seqs \\
+\f1 \
+
+\f5 \'a0 --i-data merged-rep-seqs.qza \\
+\f1 \
+
+\f5 \'a0 --o-visualization merged-rep-seqs.qzv
+\f1 \
+\
+
+\f5 qiime phylogeny align-to-tree-mafft-fasttree
+\f1  
+\f5 \cf5 \\
+\f1 \cf2  \
+
+\f5 \'a0 --i-sequences merged-rep-seqs.qza
+\f1  
+\f5 \cf5 \\
+\f1 \cf2  \
+
+\f5 \'a0 --o-alignment aligned-rep-seqs.qza
+\f1  
+\f5 \cf5 \\
+\f1 \cf2  \
+
+\f5 \'a0 --o-masked-alignment masked-aligned-rep-seqs.qza
+\f1  
+\f5 \cf5 \\
+\f1 \cf2  \
+
+\f5 \'a0 --o-tree unrooted-tree.qza
+\f1  
+\f5 \cf5 \\
+\f1 \cf2  \
+
+\f5 \'a0 --o-rooted-tree rooted-tree.qza
+\f1 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\b\fs28 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+### convert QIIME to phyloseq in R ###\
+\
+\pard\pardeftab720\ri-749\partightenfactor0
+\cf0 \CocoaLigature1 # How to export a feature (OTU) table and convert from biom to .tsv 
+\b0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\b \cf0 # Step 1, export OTU table 
+\b0 \
+qiime tools export \\\
+  \kerning1\expnd0\expndtw0 \CocoaLigature0 merged-table.qza \expnd0\expndtw0\kerning0
+\CocoaLigature1 \\\
+  --output-dir \kerning1\expnd0\expndtw0 \CocoaLigature0 phyloseq\
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\b \cf0 # OTU table exports as feature-table.biom so convert to .tsv
+\b0 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 biom co\cf0 nvert -i \kerning1\expnd0\expndtw0 \CocoaLigature0 phyloseq/\expnd0\expndtw0\kerning0
+\CocoaLigature1 feature-table.biom -o \kerning1\expnd0\expndtw0 \CocoaLigature0 phyloseq/\expnd0\expndtw0\kerning0
+\CocoaLigature1 otu_table.txt --to-tsv\
+\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 # now you have otu_table.txt\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf0 # open it up in text edit and change #OTUID to OTUID\kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 # Step 2, export taxonomy table
+\b0  \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf0 qiime tools export \\\
+\pard\pardeftab720\ri-749\partightenfactor0
+\cf0 \kerning1\expnd0\expndtw0 taxonomy.qza\expnd0\expndtw0\kerning0
+\\\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf0   --output-dir \kerning1\expnd0\expndtw0 \CocoaLigature0 phyloseq\
+\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 # now you have \kerning1\expnd0\expndtw0 \CocoaLigature0 taxonomy.tsv\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 # open it up in text edit and change \kerning1\expnd0\expndtw0 \CocoaLigature0 Feature ID to \expnd0\expndtw0\kerning0
+\CocoaLigature1 OTUID\kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf0 \
+
+\b \expnd0\expndtw0\kerning0
+\CocoaLigature1 # Step 3, export tree 
+\b0 \
+qiime tools export \\\
+  unrooted-tree.qza \\\
+  --output-dir \kerning1\expnd0\expndtw0 \CocoaLigature0 phyloseq\
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\b \cf0 # Step 4 QIIME2 doesn\'92t filter out taxonomy, so you have to merge the two files in R and output a merged file\
+(the rest of the code is in the R file)\
+\
+#without procryptocerus\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\b0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 qiime tools import \\ \
+--input-path 
+\f6\fs26 \cf2 otu_decontam_nopro.biom
+\f1\fs24 \cf2 \'a0\\ \
+--type 'FeatureTable[Frequency]' \\ \
+--input-format BIOMV100Format \\ \
+--output-path feature-table_phylo_nopro_decontam.qza \
+\
+#filter rep-seqs file for decontaminated OTUs \
+qiime feature-table filter-seqs \\ \
+--i-data merged-rep-seqs.qza \\ \
+--i-table \cf2 feature-table_phylo_nopro_decontam.qza \cf2 \'a0 \\ \
+--p-no-exclude-ids \\ \
+--o-filtered-data rep-seqs-decontam-nopro.qza \
+\
+qiime phylogeny align-to-tree-mafft-fasttree 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-sequences rep-seqs-decontam-nopro.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-alignment aligned-rep-seqs-decontam-nopro.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-masked-alignment masked-aligned-rep-seqs-decontam-nopro.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-tree unrooted-tree-decontam-nopro.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-rooted-tree rooted-tree-decontam-nopro.qza \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 #with procryptocerus
+\b0 \cf2 \
+qiime tools import \\ \
+--input-path otu_decontam.biom \\ \
+--type 'FeatureTable[Frequency]' \\ \
+--input-format BIOMV100Format \\ \
+--output-path feature-table_phylo_decontam.qza \
+\
+qiime feature-table filter-seqs \\ \
+--i-data merged-rep-seqs.qza \\ \
+--i-table \cf2 feature-table_phylo_decontam.qza \cf2 \'a0 \\ \
+--p-no-exclude-ids \\ \
+--o-filtered-data rep-seqs-decontam-withpro.qza \
+\
+qiime phylogeny align-to-tree-mafft-fasttree 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-sequences rep-seqs-decontam-withpro.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-alignment aligned-rep-seqs-decontam-withpro.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-masked-alignment masked-aligned-rep-seqs-decontam-withpro.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-tree unrooted-tree-decontam-withpro.qza 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-rooted-tree rooted-tree-decontam-withpro.qza \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\b\fs28 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+####\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f5\b0\fs24 \cf10 \expnd0\expndtw0\kerning0
+\CocoaLigature1 qiime diversity core-metrics-phylogenetic \\
+\f1 \cf2 \
+
+\f5 \cf10 \'a0\'a0 --i-phylogeny
+\f1 \cf2  
+\f5 \cf10 rooted-tree-decontam-nopro.qza\'a0\\
+\f1 \cf2  \
+
+\f5 \cf10 \'a0\'a0 --i-table
+\f1 \cf2  
+\f5 \cf10 feature-table_phylo_nopro_decontam.qza\'a0\\
+\f1 \cf2  \
+
+\f5 \cf10 \'a0\'a0 --p-sampling-depth
+\f1 \cf2  
+\f7\fs32 \cf10 13814
+\f5\fs24 \'a0\\
+\f1 \cf2  \
+
+\f5 \cf10 \'a0\'a0 --m-metadata-file
+\f1 \cf2  
+\f5 \cf10 sample-metadata_merged_qpcr1_nopro_again.tsv
+\f1 \cf2  
+\f5 \cf10 \\
+\f1 \cf2  \
+
+\f5 \cf10 \'a0\'a0 --output-dir 
+\f1 \cf2 core-metrics-results-rarefied-nopro-rooted-try2\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f5 \cf2 qiime diversity core-metrics-phylogenetic \\
+\f1 \
+
+\f5 \'a0\'a0 --i-phylogeny
+\f1  
+\f5 rooted-tree-decontam-withpro.qza\'a0\\
+\f1  \
+
+\f5 \'a0\'a0 --i-table
+\f1  
+\f5 feature-table_phylo_decontam.qza\'a0\\
+\f1  \
+
+\f5 \'a0\'a0 --p-sampling-depth
+\f1  
+\f7\fs32 \cf2 13335
+\f5\fs24 \cf2 \'a0\\
+\f1  \
+
+\f5 \'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_rarefied_withpro_qiime_caste.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0 --output-dir
+\f1  
+\f5 core-metrics-results-rarefied-withpro-rooted-try2
+\f1  \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\b\fs28 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+#alpha diversity statistics
+\f1\b0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f5 \cf2 qiime diversity alpha-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-alpha-diversity
+\f1  
+\f5 shannon_vector-nopro.qza
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization
+\f1  
+\f5 shannon-group-significance-nopro.qzv
+\f1  \
+\
+
+\f5 qiime diversity alpha-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-alpha-diversity
+\f1  
+\f5 evenness_vector-nopro.qza
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization
+\f1  
+\f5 evenness-group-significance-nopro.qzv
+\f1  \
+\
+
+\f5 qiime diversity alpha-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-alpha-diversity
+\f1  
+\f5 faith_pd_vector-nopro.qza
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization
+\f1  
+\f5 faith-pd-group-significance-nopro.qzv
+\f1  \
+\
+
+\f5 qiime diversity alpha-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-alpha-diversity
+\f1  
+\f5 observed_otus_vector-nopro.qza
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization
+\f1  
+\f5 observed-otus-group-significance-nopro.qzv
+\f1  \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\b\fs28 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 #beta diversity statistics \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f5\b0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 qiime diversity adonis\'a0\\
+\f1 \
+
+\f5 --i-distance-matrix\'a0weighted_unifrac_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 --m-metadata-file\'a0sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1 \
+
+\f5 --p-formula "Body_Type*Species*Caste_Type*Colony"\'a0\\
+\f1 \
+
+\f5 --p-permutations 999\'a0\\
+\f1 \
+
+\f5 --o-visualization ADONIS-weighted_unifrac_colony.qzv
+\f1 \
+\
+\
+
+\f5 qiime diversity adonis\'a0\\
+\f1 \
+
+\f5 --i-distance-matrix\'a0unweighted_unifrac_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 --m-metadata-file\'a0sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1 \
+
+\f5 --p-formula "Body_Type*Species*Caste_Type*Colony"\'a0\\
+\f1 \
+
+\f5 --p-permutations 999\'a0\\
+\f1 \
+
+\f5 --o-visualization ADONIS-unweighted_unifrac_colony.qzv
+\f1 \
+\
+\
+
+\f5 qiime diversity adonis\'a0\\
+\f1 \
+
+\f5 --i-distance-matrix\'a0bray_curtis_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 --m-metadata-file\'a0sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1 \
+
+\f5 --p-formula "Body_Type*Species*Caste_Type*Colony"\'a0\\
+\f1 \
+
+\f5 --p-permutations 999\'a0\\
+\f1 \
+
+\f5 --o-visualization ADONIS-bray_colony.qzv
+\f1 \
+\
+
+\f5 qiime diversity adonis\'a0\\
+\f1 \
+
+\f5 --i-distance-matrix\'a0bray_curtis_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 --m-metadata-file\'a0sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1 \
+
+\f5 --p-formula "Body_Type*Species*Caste_Type"\'a0\\
+\f1 \
+
+\f5 --p-permutations 999\'a0\\
+\f1 \
+
+\f5 --o-visualization ADONIS-bray_nocolony.qzv
+\f1 \
+\
+
+\f5 qiime diversity adonis\'a0\\
+\f1 \
+
+\f5 --i-distance-matrix\'a0bray_curtis_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 --m-metadata-file\'a0sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1 \
+
+\f5 --p-formula\'a0\'93Species"\'a0\\
+\f1 \
+
+\f5 --p-permutations 999\'a0\\
+\f1 \
+
+\f5 --o-visualization ADONIS-bray_species.qzv
+\f1 \
+\
+
+\f5 qiime diversity adonis\'a0\\
+\f1 \
+
+\f5 --i-distance-matrix\'a0bray_curtis_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 --m-metadata-file\'a0sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1 \
+
+\f5 --p-formula\'a0\'93Species"\'a0\\
+\f1 \
+
+\f5 --p-permutations 999\'a0\\
+\f1 \
+
+\f5 --o-visualization ADONIS-bray_species.qzv
+\f1 \
+\
+#permdisp\
+\
+\pard\tx3728\pardeftab720\sl320\partightenfactor0
+
+\f5 \cf11 qiime diversity beta-group-significance \\
+\f1 \
+
+\f5 --i-distance-matrix\'a0bray_curtis_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 --m-metadata-file\'a0sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1 \
+
+\f5 --m-metadata-column\'a0Species \\
+\f1 \
+
+\f5 --p-method 'permdisp'\'a0\\
+\f1 \
+
+\f5 --p-pairwise \\
+\f1 \
+
+\f5 --o-visualization bray__species_permdisp.qzv
+\f1 \
+\
+
+\f5 qiime diversity beta-group-significance \\
+\f1 \
+
+\f5 --i-distance-matrix\'a0core-metrics-results-rarefied-nopro-rooted-try2/weighted_unifrac_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 --m-metadata-file\'a0sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1 \
+
+\f5 --m-metadata-column Body_Type\'a0\\
+\f1 \
+
+\f5 --p-method 'permdisp'\'a0\\
+\f1 \
+
+\f5 --p-pairwise \\
+\f1 \
+
+\f5 --o-visualization core-metrics-results-rarefied-nopro-rooted-try2/wunifrac_body_permdisp.qzv
+\f1 \cf2 \
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\b\fs28 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 #beta diversity statistics: pairwise\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f5\b0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix unweighted_unifrac_distance_matrix.qza
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Body_Type\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization unweighted-unifrac-compartment-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise
+\f1 \
+
+\f5 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix weighted_unifrac_distance_matrix.qza
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Body_Type\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization weighted-unifrac-compartment-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise
+\f1 \
+\
+
+\f5 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix weighted_unifrac_distance_matrix.qza
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Species\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization weighted-unifrac-species-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise
+\f1 \
+\
+
+\f5 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix unweighted_unifrac_distance_matrix.qza
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Species\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization unweighted-unifrac-species-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise
+\f1 \
+\
+
+\f5 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix weighted_unifrac_distance_matrix.qza
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Caste_Type\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization weighted-unifrac-caste-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise
+\f1 \
+\
+
+\f5 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix unweighted_unifrac_distance_matrix.qza
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Caste_Type\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization unweighted-unifrac-caste-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise
+\f1 \
+\
+\
+
+\f5 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix bray_curtis_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Body_Type\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization bray-compartment-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise
+\f1 \
+\
+
+\f5 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix bray_curtis_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Species\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization bray-species-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise
+\f1 \
+\
+
+\f5 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix bray_curtis_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Caste_Type\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization bray-caste-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise
+\f1 \
+\
+
+\f5 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix bray_curtis_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Colony\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization bray-colony-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise
+\f1 \
+\
+
+\f5 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix weighted_unifrac_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_rarefied_nopro_qiime_colony.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Colony\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization weighted_unifrac-colony-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise
+\f1 \
+\
+
+\f5 qiime diversity beta-group-significance
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --i-distance-matrix unweighted_unifrac_distance_matrix.qza\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-file
+\f1  
+\f5 sample-metadata_rarefied_nopro_qiime_colony.tsv\'a0\\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --m-metadata-column Colony\'a0\\
+\f1 \
+
+\f5 \'a0\'a0\'a0\'a0 --o-visualization unweighted_unifrac-colony-significance.qzv
+\f1  
+\f5 \\
+\f1  \
+
+\f5 \'a0\'a0\'a0\'a0 --p-pairwise\
+\
+\
+#no gaster\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf2 qiime tools import 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --type 'FeatureTable[Frequency]' \'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --input-path 
+\f6\fs26 \cf2 otu_decontam_nopro_nogaster.biom
+\f1\fs24 \cf2 \'a0
+\b \cf5 \\
+\b0 \cf2  \
+
+\b \cf5 \'a0 --input-format\'a0
+\f6\fs26 \cf2 BIOMV100Format
+\f1\fs24 \cf5 \'a0\\
+\b0 \cf2 \
+\'a0 --output-path\'a0feature-table_phylo_nopro_nogaster_decontam.qza\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 qiime feature-table filter-seqs\'a0
+\b \cf5 \\
+\b0 \cf2 \
+\'a0 --i-data\'a0merged-rep-seqs.qza\'a0\'a0
+\b \cf5 \\
+\b0 \cf2 \
+\'a0 --i-table\'a0feature-table_phylo_nopro_nogaster_decontam.qza\'a0
+\b \cf5 \\
+\b0 \cf2 \
+
+\b \cf5 \'a0 --p-no-exclude-ids\'a0\'a0\\
+\b0 \cf2 \
+\'a0 --o-filtered-data\'a0rep-seqs-decontam-nopro-nogaster.qza\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \cb12 qiime\cf2 \cb1  \cf2 \cb12 phylogeny\cf2 \cb1  \cf2 \cb12 align\cf2 \cb1 -to-\cf2 \cb12 tree\cf2 \cb1 -\cf2 \cb12 mafft\cf2 \cb1 -fast\cf2 \cb12 tree\cf2 \cb1  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-sequences rep-seqs-decontam-nopro_nogaster.qza\'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-\cf2 \cb12 align\cf2 \cb1 ment aligned-rep-seqs-decontam-nopro_noG.qza\'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-masked-alignment masked-aligned-rep-seqs-decontam-nopro_noG.qza\'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-tree unrooted-tree-decontam-nopro_noG.qza\'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --o-rooted-tree\'a0 rooted-tree-decontam-nopro_noG.qza\'a0 
+\f5 \cf2 \
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf2 \cb12 qiime\cf2 \cb1  diversity core-metrics-phylogenetic 
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-\cf2 \cb12 phylogeny\cf2 \cb1  \cf10 rooted-tree-decontam-nopro_noG.qza\cf2 \'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --i-table \cf10 feature-table_phylo_nopro_nogaster_decontam.qza\cf2 \'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --p-sampling-depth \cf6 13814\cf2 \'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --m-metadata-file \cf10 sample-metadata_merged_qpcr1_nopro_again.tsv\cf2 \'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --output-dir\'a0core-metrics-results-rarefied-nopro-rooted-nogaster\
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f5 \cf2 qiime diversity adonis\'a0\\
+\f1 \
+
+\f5 --i-distance-matrix\'a0
+\f1 core-metrics-results-rarefied-nopro-rooted-nogaster
+\f5 /
+\f1 weighted_unifrac_distance_matrix_nogaster.qza\'a0
+\f5 \'a0\\
+\f1 \
+
+\f5 --m-metadata-file\'a0sample-metadata_merged_qpcr1_nopro_again.tsv\'a0\\
+\f1 \
+
+\f5 --p-formula "Body_Type*Species*Caste_Type*Colony"\'a0\\
+\f1 \
+
+\f5 --p-permutations 999\'a0\\
+\f1 \
+
+\f5 --o-visualization
+\f1  core-metrics-results-rarefied-nopro-rooted-nogaster
+\f5 /ADONIS-weighted_unifrac_nogaster.qzv
+\f1  \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f5 \cf2 \
+\
+\
+#### Bacterial Phylogenies for JANE Analysis #####\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\b \cf2 \ul \ulc2 \
+#importing the feature table from phyloseq\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b0 \cf2 \ulnone qiime tools import \\ \
+--input-path physeq_rarefied_withpro_qiime_rooted.biom \\ \
+--type 'FeatureTable[Frequency]' \\ \
+--input-format BIOMV100Format \\ \
+--output-path feature-table_physeq_rarefied_withpro_qiime_rooted.qza \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 \ul \ulc2 \
+#For grouping by species\'a0
+\b0 \ulnone \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf13 qiime
+\f1\fs24 \cf2  
+\f4\fs30 \cf3 \cb14 feature-table group \\
+\f1\fs24 \cf2 \cb1  \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1 \'a0feature-table_physeq_rarefied_withpro_qiime_rooted.qza
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --p-axis
+\f1\fs24 \cf2 \cb1 \'a0sample\'a0
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --m-metadata-file
+\f1\fs24 \cf2 \cb1  \cf15 sample-metadata_rarefied_withpro_qiime.tsv
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --m-metadata-column
+\f1\fs24 \cf2 \cb1 \'a0Species 
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --p-mode
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf15 sum
+\f1\fs24 \cf2 \'a0
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --output-dir
+\f1\fs24 \cf2 \cb1 \'a0\cf15 species-rarefied-withpro-rooted-
+\f4\fs30 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \
+\
+
+\f4\fs30 \cf3 \cb14 qiime feature-table summarize
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f4 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f4 \cf13 merged-table\cf15 .qzv
+\f1\fs24 \cf2 \cb1  \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 #filter rep-seqs file for decontaminated OTUs \
+qiime feature-table filter-seqs \\ \
+--i-data merged-rep-seqs.qza \\ \
+--i-table 
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f4 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1 \'a0\\ \
+--p-no-exclude-ids \\ \
+--o-filtered-data rep-seqs-
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f4 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1  \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f5 \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\b \cf2 #betaproteobacteriales #
+\b0 \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 \ul \ulc2 Betaproteo Filtering Sequences and new subset tree\'a0
+\b0 \ulnone \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime taxa filter-table \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f4 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-taxonomy taxonomy.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --p-include
+\f1\fs24 \cf2 \cb1 \'a0\'a0'\cf15 D_0__Bacteria;D_1__Proteobacteria;D_2__Gammaproteobacteria;D_3__Betaproteobacteriales'\'a0\\\cf2 \
+
+\f4\fs30 \cf3 \cb14 --o-filtered-table betaproteo-table.qza
+\f1\fs24 \cf2 \cb1 \
+\
+
+\f4\fs30 \cf3 \cb14 qiime feature-table summarize
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 betaproteo-table.qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 betaproteo-table.qzv
+\f1\fs24 \cf2 \cb1  \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 qiime feature-table filter-seqs \\
+\b0 \
+
+\b --i-data\'a0rep-seqs-
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f8 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1 \'a0\\
+\b0 \
+
+\b --m-metadata-file
+\b0  
+\f8\b\fs30 \cf3 \cb14 betaproteo
+\f1\fs24 \cf2 \cb1 -ASVs-to-keep.tsv
+\b0  
+\b \cf5 \\
+\b0 \cf2  \
+
+\b \cf5 --\cf2 p-no-exclude-ids \\
+\b0 \
+
+\b --o-filtered-data
+\b0  
+\f8\b\fs30 \cf3 \cb14 betaproteo
+\f1\fs24 \cf2 \cb1 -merged-rep-seqs.qza
+\b0  \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime feature-table tabulate-seqs
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-data
+\f1\fs24 \cf2 \cb1  
+\f8\b\fs30 \cf3 \cb14 betaproteo
+\f1 -merged-rep-seqs.qza
+\b0\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\f8\b\fs30 \cf3 \cb14 betaproteo
+\f1 -merged-rep-seqs.qzv
+\b0\fs24 \cf2 \cb1  \
+\
+
+\f4\fs30 \cf3 \cb14 qiime phylogeny align-to-tree-mafft-fasttree \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-sequences
+\f1\fs24 \cf2 \cb1  
+\f8\b\fs30 \cf3 \cb14 betaproteo-
+\f1 merged-rep-seqs.qza
+\f4\b0 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-alignment aligned-
+\f8\b betaproteo
+\f4\b0 -rep-seqs.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-masked-alignment masked-
+\f8\b betaproteo
+\f4\b0 -aligned-rep-seqs.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-tree unrooted-
+\f8\b betaproteo
+\f4\b0 -tree.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-rooted-tree rooted-
+\f8\b betaproteo
+\f4\b0 -tree.qza
+\f1\fs24 \cf2 \cb1 \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf2 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path\'a0
+\f4\fs30 \cf3 \cb14 unrooted-
+\f8\b betaproteo
+\f4\b0 -tree.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path
+\f1\fs24  
+\f8\b\fs30 \cf3 \cb14 betaproteo
+\f0\b0\fs28 \cf2 \cb1 _species
+\f1\fs24  \
+\
+
+\f0\fs28 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path\'a0
+\f4\fs30 \cf3 \cb14 rooted-
+\f8\b betaproteo
+\f4\b0 -tree.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path
+\f1\fs24  
+\f8\b\fs30 \cf3 \cb14 betaproteo
+\f0\b0\fs28 \cf2 \cb1 _species
+\f1\fs24  \
+\
+qiime tools extract 
+\b \cf5 \\
+\b0 \cf2  \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f8\b\fs30 \cf3 \cb14 --input-path
+\f1\b0\fs24 \cf2 \cb1  
+\f8\b\fs30 \cf3 \cb14 betaproteo-table.qza
+\f1\b0\fs24 \cf2 \cb1  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--output-path extracted-feature-table-
+\f8\b\fs30 \cf3 \cb14 betaproteo
+\f1\b0\fs24 \cf2 \cb1  \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf16 biom co\cf2 nvert -i feature-table.biom -o
+\f1\fs24  
+\f8\b\fs30 \cf3 \cb14 betaproteo
+\f0\b0\fs28 \cf2 \cb1 _otu_table.txt --to-tsv
+\f1\fs24  \
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \AppleTypeServices\AppleTypeServicesF65539 \cf2 #
+\f9\b \AppleTypeServices\AppleTypeServicesF65539 RHIZOBIALES#
+\f1\b0\fs24 \AppleTypeServices \cf2 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 \ul \ulc2 #Rhizobiales Filtering Sequences and new subset tree\'a0#
+\b0 \ulnone \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime taxa filter-table \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f4 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-taxonomy taxonomy.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --p-include
+\f1\fs24 \cf2 \cb1 \'a0'\cf15 D_0__Bacteria;D_1__Proteobacteria;D_2__Alphaproteobacteria;D_3__Rhizobiales'\'a0\\\cf2 \
+
+\f4\fs30 \cf3 \cb14 --o-filtered-table rhizobiales-table1.qza
+\f1\fs24 \cf2 \cb1 \
+\
+
+\f4\fs30 \cf3 \cb14 qiime feature-table summarize
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-table rhizobiales-table1.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-visualization rhizobiales-table1.qzv
+\f1\fs24 \cf2 \cb1 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 qiime feature-table filter-seqs \\
+\b0 \
+
+\b --i-data
+\b0  
+\b rep-seqs-
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f8 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1 \'a0\\
+\b0  \
+
+\b --m-metadata-file rhizobiales-ASVs-to-keep.tsv
+\b0  
+\b \cf5 \\
+\b0 \cf2  \
+
+\b \cf5 --\cf2 p-no-exclude-ids \\
+\b0 \
+
+\b --o-filtered-data rhizobiales-merged-rep-seqs1.qza
+\b0 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime feature-table tabulate-seqs
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-data
+\f1\fs24 \cf2 \cb1  
+\b\fs30 \cf3 \cb14 rhizobiales-merged-rep-seqs1.qza
+\b0\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\b\fs30 \cf3 \cb14 rhizobiales-merged-rep-seqs1.qzv
+\b0\fs24 \cf2 \cb1  \
+\
+
+\f4\fs30 \cf3 \cb14 qiime phylogeny align-to-tree-mafft-fasttree \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-sequences
+\f1\fs24 \cf2 \cb1  
+\b\fs30 \cf3 \cb14 rhizobiales-merged-rep-seqs1.qza
+\b0\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-alignment aligned-rhizobiales-rep-seqs1.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-masked-alignment masked-rhizobiales-aligned-rep-seqs1.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-tree unrooted-rhizobiales-tree1.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-rooted-tree rooted-rhizobiales-tree1.qza
+\f1\fs24 \cf2 \cb1 \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf2 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path\'a0
+\f4\fs30 \cf3 \cb14 unrooted-rhizobiales-tree1.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path\'a0\AppleTypeServices\AppleTypeServicesF65539 \cf2 exported-feature-table
+\f1\fs24 \AppleTypeServices \cf2 \
+\
+
+\f0\fs28 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path
+\f1\fs24  
+\f4\fs30 \cf3 \cb14 rooted-rhizobiales-tree1.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24  \
+
+\f0\fs28 \'a0 --output-path rooted_rhizo
+\f1\fs24 \
+\
+
+\f0\fs28 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path un
+\f4\fs30 \cf3 \cb14 rooted-rhizobiales-tree1.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path\'a0\AppleTypeServices\AppleTypeServicesF65539 \cf2 Rhizobiales_species
+\f1\fs24 \AppleTypeServices \cf2 \
+\
+mkdir extracted-feature-table \
+qiime tools extract 
+\b \cf5 \\
+\b0 \cf2  \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f8\b\fs30 \cf3 \cb14 --input-path Rhizobiales_species/rhizobiales-table1.qza
+\f1\b0\fs24 \cf2 \cb1  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--output-path 
+\f8\b\fs30 \cf3 \cb14 Rhizobiales_species/
+\f1\b0\fs24 \cf2 \cb1 extracted-feature-table-rhizo \
+\
+qiime tools \cf17 export\cf2  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --input-path 
+\f8\b\fs30 \cf3 \cb14 Rhizobiales_species/rhizobiales-table1.qza
+\f1\b0\fs24 \cf2 \cb1 \'a0
+\b \cf5 \\
+\b0 \cf2  \
+\'a0 --output-path exported-feature-table \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf16 biom co\cf2 nvert -i feature-table.biom -o otu_table.txt --to-tsv
+\f1\fs24 \
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \AppleTypeServices\AppleTypeServicesF65539 \cf2 #
+\f9\b \AppleTypeServices\AppleTypeServicesF65539 OPITUTALES#
+\f1\b0\fs24 \AppleTypeServices \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 \ul \ulc2 #Opitutales Filtering Sequences and new subset tree\'a0#
+\b0 \ulnone \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime taxa filter-table \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f4 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-taxonomy taxonomy.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --p-include
+\f1\fs24 \cf2 \cb1 \'a0\'a0'\cf15 D_0__Bacteria;D_1__Verrucomicrobia;D_2__Verrucomicrobiae;D_3__Opitutales' \\\cf2 \
+
+\f4\fs30 \cf3 \cb14 --o-filtered-table opitutales-table-rare.qza
+\f1\fs24 \cf2 \cb1 \
+\
+
+\f4\fs30 \cf3 \cb14 qiime feature-table summarize
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 opitutales-table-rare.qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 opitutales-table-rare.qzv
+\f1\fs24 \cf2 \cb1  \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 qiime feature-table filter-seqs \\
+\b0 \
+
+\b --i-data
+\b0  
+\b rep-seqs-
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f8 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1 \'a0\\
+\b0  \
+
+\b --m-metadata-file opitutales-ASVs-to-keep-rare.tsv
+\b0  
+\b \cf5 \\
+\b0 \cf2  \
+
+\b \cf5 --\cf2 p-no-exclude-ids \\
+\b0 \
+
+\b --o-filtered-data opitutales-rare-merged-rep-seqs.qza
+\b0 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime feature-table tabulate-seqs
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-data
+\f1\fs24 \cf2 \cb1  
+\b\fs30 \cf3 \cb14 opitutales-rare-merged-rep-seqs.qza
+\b0\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\b\fs30 \cf3 \cb14 opitutales-rare-merged-rep-seqs.qzv
+\b0\fs24 \cf2 \cb1  \
+\
+
+\f4\fs30 \cf3 \cb14 qiime phylogeny align-to-tree-mafft-fasttree \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-sequences
+\f1\fs24 \cf2 \cb1  
+\b\fs30 \cf3 \cb14 opitutales-rare-merged-rep-seqs.qza
+\f4\b0 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-alignment aligned-opitutales-rare-rep-seqs.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-masked-alignment masked-opitutales-rare-aligned-rep-seqs.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-tree unrooted-opitutales-rare-tree.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-rooted-tree rooted-opitutales-rare-tree.qza
+\f1\fs24 \cf2 \cb1 \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf2 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path\'a0
+\f4\fs30 \cf3 \cb14 unrooted-opitutales-rare-tree.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path\'a0\AppleTypeServices\AppleTypeServicesF65539 \cf2 Opitutales1
+\f1\fs24 \AppleTypeServices \cf2 \
+\
+
+\f0\fs28 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path\'a0
+\f4\fs30 \cf3 \cb14 rooted-opitutales-rare-tree.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path\'a0\AppleTypeServices\AppleTypeServicesF65539 \cf2 Opitutales1
+\f1\fs24 \AppleTypeServices \cf2 \
+\
+qiime tools extract 
+\b \cf5 \\
+\b0 \cf2  \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f8\b\fs30 \cf3 \cb14 --input-path
+\f1\b0\fs24 \cf2 \cb1  
+\f0\b\fs30 \cf3 \cb14 opitutales-table-rare.qza
+\f1\b0\fs24 \cf2 \cb1  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--output-path extracted-feature-table-opit \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf16 biom co\cf2 nvert -i feature-table.biom -o opit_otu_table.txt --to-tsv
+\f1\fs24 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\b\fs28 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 #RICKETTSIALES#
+\b0 \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 \ul \ulc2 Rickettsiales Filtering Sequences and new subset tree\'a0
+\b0 \ulnone \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime taxa filter-table \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f4 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-taxonomy taxonomy.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --p-include
+\f1\fs24 \cf2 \cb1 \'a0\'a0'\cf15 D_0__Bacteria;D_1__Proteobacteria;D_2__Alphaproteobacteria;D_3__Rickettsiales'\'a0\\\cf2 \
+
+\f4\fs30 \cf3 \cb14 --o-filtered-table rickettsiales-table.qza
+\f1\fs24 \cf2 \cb1 \
+\
+
+\f4\fs30 \cf3 \cb14 qiime feature-table summarize
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 rickettsiales-table.qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 rickettsiales-table.qzv
+\f1\fs24 \cf2 \cb1  \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 qiime feature-table filter-seqs \\
+\b0 \
+
+\b --i-data\'a0rep-seqs-
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f8 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1 \'a0\\
+\b0 \
+
+\b --m-metadata-file
+\b0  
+\f8\b\fs30 \cf3 \cb14 rickettsiales
+\f1\fs24 \cf2 \cb1 -ASVs-to-keep.tsv
+\b0  
+\b \cf5 \\
+\b0 \cf2  \
+
+\b \cf5 --\cf2 p-no-exclude-ids \\
+\b0 \
+
+\b --o-filtered-data
+\b0  
+\f8\b\fs30 \cf3 \cb14 rickettsiales
+\f1\fs24 \cf2 \cb1 -merged-rep-seqs.qza
+\b0  \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime feature-table tabulate-seqs
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-data
+\f1\fs24 \cf2 \cb1  
+\f8\b\fs30 \cf3 \cb14 rickettsiales
+\f1 -merged-rep-seqs.qza
+\b0\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\f8\b\fs30 \cf3 \cb14 rickettsiales
+\f1 -merged-rep-seqs.qzv
+\b0\fs24 \cf2 \cb1  \
+\
+
+\f4\fs30 \cf3 \cb14 qiime phylogeny align-to-tree-mafft-fasttree \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-sequences
+\f1\fs24 \cf2 \cb1  
+\f8\b\fs30 \cf3 \cb14 rickettsiales-
+\f1 merged-rep-seqs.qza
+\f4\b0 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-alignment aligned-rickettsiales-rep-seqs.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-masked-alignment masked-rickettsiales-aligned-rep-seqs.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-tree unrooted-rickettsiales-tree.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-rooted-tree rooted-rickettsiales-tree.qza
+\f1\fs24 \cf2 \cb1 \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf2 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path\'a0
+\f4\fs30 \cf3 \cb14 unrooted-rickettsiales-tree.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path Rickettsiales_species
+\f1\fs24 \
+\
+
+\f0\fs28 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path\'a0
+\f4\fs30 \cf3 \cb14 rooted-rickettsiales-tree.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path Rickettsiales_species
+\f1\fs24 \
+\
+qiime tools extract 
+\b \cf5 \\
+\b0 \cf2  \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f8\b\fs30 \cf3 \cb14 --input-path
+\f1\b0\fs24 \cf2 \cb1  
+\f8\b\fs30 \cf3 \cb14 rickettsiales-table.qza
+\f1\b0\fs24 \cf2 \cb1  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--output-path extracted-feature-table-rickettsiales \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf16 biom co\cf2 nvert -i feature-table.biom -o rickettsiales_otu_table.txt --to-tsv\
+\
+#Enterobacteriales #
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 \ul Enterobacteriales Filtering Sequences and new subset tree\'a0
+\b0 \ulnone \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime taxa filter-table \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f4 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-taxonomy taxonomy.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --p-include
+\f1\fs24 \cf2 \cb1 \'a0\'a0'\cf15 D_0__Bacteria;D_1__Proteobacteria;D_2__Gammaproteobacteria;D_3__Enterobacteriales'\'a0\\\cf2 \
+
+\f4\fs30 \cf3 \cb14 --o-filtered-table enterobacteriales-table.qza
+\f1\fs24 \cf2 \cb1 \
+\
+
+\f4\fs30 \cf3 \cb14 qiime feature-table summarize
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 enterobacteriales-table.qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 enterobacteriales-table.qzv
+\f1\fs24 \cf2 \cb1  \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 qiime feature-table filter-seqs \\
+\b0 \
+
+\b --i-data
+\b0  
+\b rep-seqs-
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f8 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1 \'a0\\
+\b0  \
+
+\b --m-metadata-file
+\b0  
+\f8\b\fs30 \cf3 \cb14 enterobacteriales
+\f1\fs24 \cf2 \cb1 -ASVs-to-keep.tsv
+\b0  
+\b \cf5 \\
+\b0 \cf2  \
+
+\b \cf5 --\cf2 p-no-exclude-ids \\
+\b0 \
+
+\b --o-filtered-data
+\b0  
+\f8\b\fs30 \cf3 \cb14 enterobacteriales
+\f1\fs24 \cf2 \cb1 -merged-rep-seqs.qza
+\b0  \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime feature-table tabulate-seqs
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-data
+\f1\fs24 \cf2 \cb1  
+\f8\b\fs30 \cf3 \cb14 enterobacteriales
+\f1 -merged-rep-seqs.qza
+\b0\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\f8\b\fs30 \cf3 \cb14 enterobacteriales
+\f1 -merged-rep-seqs.qzv
+\b0\fs24 \cf2 \cb1  \
+\
+
+\f4\fs30 \cf3 \cb14 qiime phylogeny align-to-tree-mafft-fasttree \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-sequences
+\f1\fs24 \cf2 \cb1  
+\f8\b\fs30 \cf3 \cb14 enterobacteriales-
+\f1 merged-rep-seqs.qza
+\f4\b0 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-alignment aligned-enterobacteriales-rep-seqs.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-masked-alignment masked-enterobacteriales-aligned-rep-seqs.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-tree unrooted-enterobacteriales-tree.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-rooted-tree rooted-enterobacteriales-tree.qza
+\f1\fs24 \cf2 \cb1 \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf2 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path\'a0
+\f4\fs30 \cf3 \cb14 unrooted-enterobacteriales-tree.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path E
+\f4\fs30 \cf3 \cb14 nterobacteriales_species
+\f1\fs24 \cf2 \cb1 \
+\
+
+\f0\fs28 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path\'a0
+\f4\fs30 \cf3 \cb14 rooted-enterobacteriales-tree.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path E
+\f4\fs30 \cf3 \cb14 nterobacteriales_species
+\f1\fs24 \cf2 \cb1 \
+\
+qiime tools extract 
+\b \cf5 \\
+\b0 \cf2  \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f8\b\fs30 \cf3 \cb14 --input-path
+\f1\b0\fs24 \cf2 \cb1  
+\f0\b\fs28 \cf3 \cb14 E
+\f8\fs30 \cf3 \cb14 nterobacteriales-table.qza
+\f1\b0\fs24 \cf2 \cb1  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--output-path extracted-feature-table-entero \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf16 biom co\cf2 nvert -i feature-table.biom -o entero_otu_table.txt --to-tsv
+\f1\fs24 \
+\
+#Xanthomonadales #\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 \ul #Xanthomonadales\'a0Filtering Sequences and new subset tree\'a0#
+\b0 \ulnone \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime taxa filter-table \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f4 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-taxonomy taxonomy.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --p-include
+\f1\fs24 \cf2 \cb1 \'a0\'a0'\cf15 D_0__Bacteria;D_1__Proteobacteria;D_2__Gammaproteobacteria;D_3__Xanthomonadales'\'a0\\\cf2 \
+
+\f4\fs30 \cf3 \cb14 --o-filtered-table
+\f1\fs24 \cf2 \cb1  
+\fs30 \cf3 \cb14 Xanthomonadales
+\f4 \cf3 \cb14 -table.qza
+\f1\fs24 \cf2 \cb1  \
+\
+
+\f4\fs30 \cf3 \cb14 qiime feature-table summarize
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-table
+\f1\fs24 \cf2 \cb1  
+\fs30 \cf3 \cb14 Xanthomonadales
+\f4 \cf3 \cb14 -table.qza
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\fs30 \cf3 \cb14 Xanthomonadales
+\f4 \cf3 \cb14 -table.qzv
+\f1\fs24 \cf2 \cb1  \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b \cf2 qiime feature-table filter-seqs \\
+\b0 \
+
+\b --i-data
+\b0  
+\b rep-seqs-
+\fs30 \cf15 \cb14 species-rarefied-withpro-rooted-
+\f8 \cf13 merged-table\cf15 .qza
+\f1\fs24 \cf2 \cb1 \'a0\\
+\b0  \
+
+\b --m-metadata-file
+\b0  
+\b \cf3 Xanthomonadales\cf2 -ASVs-to-keep.tsv
+\b0  
+\b \cf5 \\
+\b0 \cf2  \
+
+\b \cf5 --\cf2 p-no-exclude-ids \\
+\b0 \
+
+\b --o-filtered-data
+\b0  
+\b \cf3 Xanthomonadales\cf2 -merged-rep-seqs.qza
+\b0  \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f4\fs30 \cf3 \cb14 qiime feature-table tabulate-seqs
+\f1\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --i-data
+\f1\fs24 \cf2 \cb1  
+\b\fs30 \cf3 \cb14 Xanthomonadales-merged-rep-seqs.qza
+\b0\fs24 \cf2 \cb1  
+\f4\fs30 \cf3 \cb14 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-visualization
+\f1\fs24 \cf2 \cb1  
+\b\fs30 \cf3 \cb14 Xanthomonadales-merged-rep-seqs.qzv
+\b0\fs24 \cf2 \cb1  \
+\
+
+\f4\fs30 \cf3 \cb14 qiime phylogeny align-to-tree-mafft-fasttree \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --i-sequences
+\f1\fs24 \cf2 \cb1  
+\b\fs30 \cf3 \cb14 Xanthomonadales
+\f8 -
+\f1 merged-rep-seqs.qza
+\f4\b0 \\
+\f1\fs24 \cf2 \cb1  \
+
+\f4\fs30 \cf3 \cb14 --o-alignment aligned-
+\f1 \cf3 \cb14 Xanthomonadales
+\f4 \cf3 \cb14 -rep-seqs.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-masked-alignment masked-
+\f1 \cf3 \cb14 Xanthomonadales
+\f4 \cf3 \cb14 -aligned-rep-seqs.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-tree unrooted-
+\f1 \cf3 \cb14 Xanthomonadales
+\f4 \cf3 \cb14 -tree.qza \\
+\f1\fs24 \cf2 \cb1 \
+
+\f4\fs30 \cf3 \cb14 --o-rooted-tree rooted-
+\f1 \cf3 \cb14 Xanthomonadales
+\f4 \cf3 \cb14 -tree.qza
+\f1\fs24 \cf2 \cb1 \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf2 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path\'a0
+\f4\fs30 \cf3 \cb14 unrooted-
+\f1 \cf3 \cb14 Xanthomonadales
+\f4 \cf3 \cb14 -tree.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path
+\f1\fs24  
+\f0\fs28 Xanthomonadales
+\f4\fs30 \cf3 \cb14 _species
+\f1\fs24 \cf2 \cb1  \
+\
+
+\f0\fs28 qiime tools export \\
+\f1\fs24 \
+
+\f0\fs28 \'a0--input-path\'a0
+\f4\fs30 \cf3 \cb14 rooted-
+\f1 \cf3 \cb14 Xanthomonadales
+\f4 \cf3 \cb14 -tree.qza
+\f0\fs28 \cf2 \cb1 \\
+\f1\fs24 \
+
+\f0\fs28 \'a0 --output-path
+\f1\fs24  
+\f0\fs28 Xanthomonadales
+\f4\fs30 \cf3 \cb14 _species
+\f1\fs24 \cf2 \cb1  \
+\
+qiime tools extract 
+\b \cf5 \\
+\b0 \cf2  \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f8\b\fs30 \cf3 \cb14 --input-path
+\f1\b0\fs24 \cf2 \cb1  
+\f0\b\fs28 \cf3 \cb14 Xanthomonadales
+\f8\fs30 \cf3 \cb14 -table.qza
+\f1\b0\fs24 \cf2 \cb1  
+\b \cf5 \\
+\b0 \cf2  \
+\'a0--output-path extracted-feature-table-xantha \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf16 biom co\cf2 nvert -i feature-table.biom -o otu_table.txt --to-tsv
+\f1\fs24 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\b\fs28 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\b0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+}
